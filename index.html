@@ -48,9 +48,95 @@
 </header>
 <div class="container" id="digests">
 <!-- DIGESTS_START -->
+<!-- DAY:2026-05-07 -->
+<section class="day" data-date="2026-05-07">
+  <details open>
+    <summary><span class="day-date">2026年5月7日</span><span class="day-stats">12 位 builder · 25 条推文 · 1 期播客 · 1 篇博客</span></summary>
+    <div class="day-content">
+
+<div class="section-label">官方博客 Official Blogs</div>
+<div class="card">
+  <div class="podcast-label">📝 Anthropic Engineering</div>
+  <div class="card-title"><a href="https://www.anthropic.com/engineering/claude-code-auto-mode" target="_blank">Claude Code auto mode：一种更安全的跳过权限审批方式</a></div>
+  <div class="excerpt">Anthropic 发布 Claude Code 的 <b>auto mode</b>，填补了"每次手动审批"和 <code>--dangerously-skip-permissions</code> 全量放行之间的空白。核心是两层防御：输入层用 <b>prompt injection（提示注入）</b>探针扫描工具输出，发现疑似劫持内容时向 agent 发出警告；输出层则用基于 Sonnet 4.6 的 transcript classifier 进行二阶段分类——第一阶段快速单 token 过滤（宁可误拦，不漏危险），第二阶段仅对被拦截的 action 进行 chain-of-thought 推理以降低误报。<br><br>实测数据：在 1 万条真实内部流量中，误报率（FPR）从 stage 1 的 8.5% 降至完整 pipeline 的 0.4%；对 52 条真实"过度主动"行为的漏报率（FNR）为 17%。Anthropic 坦承：auto mode 面向的是因审批疲劳而已经无脑放行的用户，而非认真手动审批每个 action 的用户的替代品。</div>
+</div>
+
+<div class="section-label">播客 Podcast</div>
+<div class="card">
+  <div class="podcast-label">🎙 Training Data</div>
+  <div class="card-title"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank">Waymo Dmitri Dolgov：2000万次出行，以及走向完全自动驾驶的路</a></div>
+  <div class="excerpt">Waymo 联合创始人兼 CEO Dmitri Dolgov 在 Training Data 现场分享了他的故事：从苏联出生、辗转日本和美国求学，最终回到莫斯科物理技术学院（MIPT）读完物理与数学，再拿到 AI 博士学位。2005年他参与了 DARPA 无人驾驶挑战赛，从那一刻起再没回头。<br><br>他对每次 AI 炒作周期的判断："无论是卷积网络、Transformer 还是 LLM，每次突破都会推动曲线前段的快速进展，但不会改变长尾。自动驾驶很容易入门，但很难做到真正的全自动和超人类安全性。"<br><br>最令人印象深刻的案例：Waymo 的激光雷达通过探测公交车底部的稀疏反射信号，识别出被遮挡行人的脚步移动，在行人出现前就完成预判规避——Dolgov 本人称之为"blew my mind"。目前 Waymo 每周行驶超过 400 万英里全自动里程，造成严重伤害碰撞的概率比人类驾驶员低 13 倍，每 8 天预防一次严重事故。2026 年计划进入伦敦和东京市场。</div>
+</div>
+
+<div class="section-label">X / Twitter 动态</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
+  <div class="card-body">"对 <b>voice model（语音模型）</b>越来越感到兴奋——很有趣的是，大家已经开始改变和 AI 互动的方式了。"<br><br>另外，Sam 还表示会为那些没能参加 GPT-5.5 派对的申请者"安排一些好事"。</div>
+  <div class="card-footer"><span>❤️ 4,451 / 7,348</span><span>🔁 162</span><a href="https://x.com/sama/status/2051464865634742334" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
+  <div class="card-body">Anthropic 和 OpenAI 都在推出帮助企业部署 <b>AI agent</b> 的新计划。他的判断：这个趋势现在还早期，但会快速爆发。随着 agent 从写代码延伸到更广泛的知识工作，企业需要认真升级 IT 系统、为 agent 提供所需上下文，并建立相应的治理机制——这将在整个市场创造大量新机会。</div>
+  <div class="card-footer"><span>❤️ 836</span><span>🔁 110</span><a href="https://x.com/levie/status/2051344780328858040" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Guillermo Rauch</span><a class="handle" href="https://x.com/rauchg" target="_blank">@rauchg</a><span style="color:#888;font-size:12px">Vercel CEO</span></div>
+  <div class="card-body">发布 <b>npx deepsec</b>——一个开源的 <b>agent orchestrator（智能体编排工具）</b>，专门用于深度安全审查。<b>coding agent</b> 能在几分钟内发现人工需要数月才能定位的严重漏洞；配合 Vercel Sandbox 可并行调度数千个 agent 同时扫描代码库。维护开源项目的朋友可以找他申请赞助运行。</div>
+  <div class="card-footer"><span>❤️ 1,229</span><span>🔁 86</span><a href="https://x.com/rauchg/status/2051386798899888539" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC President & CEO</span></div>
+  <div class="card-body">GBrain v0.27 发布，新增对多种非 Anthropic/OpenAI 的 <b>embedding</b> 和 <b>LLM</b> 的支持，多模态嵌入与深度照片 OCR 功能即将推出。他解释 GBrain 的差异化：不是单纯的记忆层、代码工具或搜索引擎，而是三者在同一个图（graph）下统一，通过单一查询接口驱动——他自己每天配合 10 万个 markdown 文件和 OpenClaw+Hermes Agent 使用。</div>
+  <div class="card-footer"><span>❤️ 308 / 118</span><span>🔁 10</span><a href="https://x.com/garrytan/status/2051525161380364315" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Nikunj Kothari</span><a class="handle" href="https://x.com/nikunj" target="_blank">@nikunj</a><span style="color:#888;font-size:12px">FPV Ventures Partner</span></div>
+  <div class="card-body">"Gemini Flash 便宜得离谱，效果还超好——100 万 <b>context window（上下文窗口）</b>加结构化输出，是我生产环境最常用的模型。"<br><br>另外他也观察到：2023-2025 年这批初创公司太注重发布视频和增长，却忽视了留存（<b>retention</b>）——拿到融资，但钱还是打了水漂。种子轮到 A 轮的数据正在暴露这一点，未来将看到大量失败的快速并购。</div>
+  <div class="card-footer"><span>❤️ 252 / 262</span><span>🔁 10</span><a href="https://x.com/nikunj/status/2051321911741972900" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a><span style="color:#888;font-size:12px">OpenClaw Co-creator</span></div>
+  <div class="card-body">Crabbox 0.5.0 发布：支持桌面/浏览器 <b>lease（租用）</b>、<b>VNC</b> + 认证 WebVNC、AWS Windows + WSL2、截图和应用启动。最新进展：agent 可以在临时 ephemeral crabbox 里直接复现 bug，配置好现场环境后修复，并在 PR 上附上操作视频。</div>
+  <div class="card-footer"><span>❤️ 260 / 119</span><span>🔁 18</span><a href="https://x.com/steipete/status/2051485798613111116" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Peter Yang</span><a class="handle" href="https://x.com/petergyang" target="_blank">@petergyang</a><span style="color:#888;font-size:12px">Roblox Product</span></div>
+  <div class="card-body">AI 渗透知识工作的三个阶段：编程是第一个前沿，知识工作是第二个，个人 <b>agent</b> 是第三个。<br><br>另外他也在问：怎么让 8 岁的孩子开始用 agent 做点真实的东西，能分享给班级和老师——也许还能赚到人生第一笔钱？</div>
+  <div class="card-footer"><span>❤️ 121</span><span>🔁 11</span><a href="https://x.com/petergyang/status/2051508988936937764" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Amjad Masad</span><a class="handle" href="https://x.com/amasad" target="_blank">@amasad</a><span style="color:#888;font-size:12px">Replit CEO</span></div>
+  <div class="card-body">分享了两个 Replit 用户案例：一个创业者用它找到了投资人并拿到会面；另一个是为听障学生开发的多模态学习平台——他认为这是 AI 教育应用的正确方向。</div>
+  <div class="card-footer"><span>❤️ 124</span><span>🔁 11</span><a href="https://x.com/amasad/status/2051406536443035922" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
+  <div class="card-body">分享了一张从 WSJ 重建的估值对比图：OpenAI 估值 8500 亿美元，ARR 约 300 亿；蚂蚁集团估值约 9000 亿美元，ARR 约 440 亿（但按 OpenAI 会计口径可能低 80-100 亿）。两家体量相近的巨头，收入与估值的微妙差距值得关注。</div>
+  <div class="card-footer"><span>❤️ 3</span><span>🔁 1</span><a href="https://x.com/swyx/status/2051440392722391180" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Aditya Agarwal</span><a class="handle" href="https://x.com/adityaag" target="_blank">@adityaag</a><span style="color:#888;font-size:12px">South Park Commons General Partner，前 Dropbox CTO</span></div>
+  <div class="card-body">"我们从未想成为一个加速器。没有方向的速度毫无意义。"——对当前创业生态"速度即美德"叙事的清醒反驳。</div>
+  <div class="card-footer"><span>❤️ 65</span><span>🔁 3</span><a href="https://x.com/adityaag/status/2051330205902581842" target="_blank">查看原文 →</a></div>
+</div>
+
+    </div>
+  </details>
+</section>
+<!-- /DAY:2026-05-07 -->
 <!-- DAY:2026-05-06 -->
 <section class="day" data-date="2026-05-06">
-  <details open>
+  <details>
     <summary><span class="day-date">2026年5月6日</span><span class="day-stats">12 位 builder · 25 条推文 · 1 期播客</span></summary>
     <div class="day-content">
 
