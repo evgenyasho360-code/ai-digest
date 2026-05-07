@@ -250,6 +250,20 @@
   }
 
   .empty{color:var(--t3);font-size:14px;padding:16px 0;font-style:italic}
+
+  /* ── SUBSCRIBE BUTTON ─────────────────────── */
+  .subscribe-btn{
+    margin-top:8px;
+    font-family:var(--sans);font-size:9px;font-weight:500;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--t3);background:none;
+    border:1px solid var(--rule2);border-radius:0;
+    padding:5px 14px;cursor:pointer;
+    transition:color .15s,border-color .15s;
+  }
+  .subscribe-btn:hover{color:var(--gold);border-color:var(--gold)}
+  .subscribe-btn.subscribed{color:var(--gold);border-color:rgba(196,150,58,.5)}
+  .subscribe-btn:disabled{opacity:.4;cursor:default;pointer-events:none}
 </style>
 </head>
 <body>
@@ -257,6 +271,7 @@
   <div class="mh-inner">
     <h1>AI Builders Digest</h1>
     <div class="meta"><span>每日自动更新</span><span class="meta-sep">·</span><span>历史内容自动保留</span></div>
+    <button id="subscribe-btn" class="subscribe-btn" style="display:none" onclick="toggleSubscription()">🔔 订阅通知</button>
   </div>
 </header>
 <div class="container" id="digests">
@@ -428,5 +443,84 @@
 <!-- /DAY:2026-05-04 -->
 <!-- DIGESTS_END -->
 </div>
+<script>
+// ── Configuration ─────────────────────────────────────────────────────────────
+// After deploying the Cloudflare Worker, replace these two values:
+const WORKER_URL    = 'https://ai-digest-notify.YOURSUBDOMAIN.workers.dev'
+const VAPID_PUB_KEY = 'REPLACE_WITH_YOUR_VAPID_PUBLIC_KEY'
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let swReg = null
+const btn = document.getElementById('subscribe-btn')
+
+function urlB64ToUint8Array(b64) {
+  const pad = '='.repeat((4 - b64.length % 4) % 4)
+  const raw = atob(b64.replace(/-/g, '+').replace(/_/g, '/') + pad)
+  return Uint8Array.from(raw, c => c.charCodeAt(0))
+}
+
+function setBtn(state) {
+  if (state === 'subscribed') {
+    btn.textContent = '🔕 已订阅'
+    btn.classList.add('subscribed')
+    btn.disabled = false
+  } else if (state === 'unsubscribed') {
+    btn.textContent = '🔔 订阅通知'
+    btn.classList.remove('subscribed')
+    btn.disabled = false
+  } else {
+    btn.disabled = true
+  }
+}
+
+async function init() {
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) return
+  if (VAPID_PUB_KEY.startsWith('REPLACE')) return  // not yet configured
+  btn.style.display = ''
+  try {
+    swReg = await navigator.serviceWorker.register('/ai-digest/sw.js')
+    const sub = await swReg.pushManager.getSubscription()
+    setBtn(sub ? 'subscribed' : 'unsubscribed')
+  } catch (e) {
+    console.warn('SW init failed:', e)
+  }
+}
+
+async function toggleSubscription() {
+  if (!swReg) return
+  btn.disabled = true
+  try {
+    const existing = await swReg.pushManager.getSubscription()
+    if (existing) {
+      await existing.unsubscribe()
+      await fetch(WORKER_URL + '/unsubscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ endpoint: existing.endpoint }),
+      })
+      setBtn('unsubscribed')
+    } else {
+      const perm = await Notification.requestPermission()
+      if (perm !== 'granted') { setBtn('unsubscribed'); return }
+      const sub = await swReg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlB64ToUint8Array(VAPID_PUB_KEY),
+      })
+      await fetch(WORKER_URL + '/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(sub),
+      })
+      setBtn('subscribed')
+    }
+  } catch (e) {
+    console.error('Push toggle failed:', e)
+    const sub = await swReg.pushManager.getSubscription().catch(() => null)
+    setBtn(sub ? 'subscribed' : 'unsubscribed')
+  }
+}
+
+init()
+</script>
 </body>
 </html>
