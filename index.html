@@ -300,9 +300,150 @@
 </header>
 <div class="container" id="digests">
 <!-- DIGESTS_START -->
+<!-- DAY:2026-05-12 -->
+<section class="day" data-date="2026-05-12">
+  <details open>
+    <summary><span class="day-date">2026年5月12日</span><span class="day-stats">2 位 builder · 2 条推文 · 1 期播客</span></summary>
+    <div class="day-content">
+
+<div class="section-label">播客 Podcast</div>
+<div class="card">
+  <div class="podcast-label">🎙 No Priors</div>
+  <div class="card-title"><a href="https://www.youtube.com/watch?v=g5TWnUjbeFM" target="_blank">Long Lake CEO Alexander Taubman：全球首例 AI 驱动的上市公司私有化，63 亿美元收购美国运通商旅</a></div>
+  <div class="excerpt">Long Lake Management 联合创始人兼 CEO Alexander Taubman，正在以 63 亿美元私有化美国运通全球商旅（Amex Global Business Travel）——这被认为是全球首例 <b>AI take private（AI 驱动的私有化）</b>。Long Lake 过去已完成约 30 次收购，以自研的 Nexus AI 平台改造传统服务业，已是该行业增长最快的公司，年增 20%+。<br><br>他的核心判断反直觉：<b>AI 不只是降本，而是把劳动密集型服务公司变成"按软件逻辑增长"的公司</b>——当你让员工生产力提升 30-40%，边际雇佣成本崩塌，增长飞轮就此启动。而不是传统 PE 那套"买来裁员然后卖掉"，Long Lake 要永久持有，像 Berkshire Hathaway 一样复利。<br><br>"AI 渗透率在真实企业里还只有约 1%，99% 的机会还没来。"</div>
+</div>
+
+<div class="section-label">X / Twitter 动态</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Amanda Askell</span><a class="handle" href="https://x.com/AmandaAskell" target="_blank">@AmandaAskell</a><span style="color:#888;font-size:12px">Anthropic 哲学家 / 伦理研究员</span></div>
+  <div class="card-body">和同事 Joe 一起把 <b>Claude 宪法（Claude's constitution）</b>录制成了有声书，现在可以收听了。她在想下一步加上"快进模式"——用读宪法来检验 AI 价值观的方式，正在从文本变成更易触达的媒介。</div>
+  <div class="card-footer"><span>❤️ 416</span><span>🔁 22</span><a href="https://x.com/AmandaAskell/status/2054010971765805486" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Cat Wu</span><a class="handle" href="https://x.com/_catwu" target="_blank">@_catwu</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
+  <div class="card-body">在终端运行 <b>`claude agents`</b>，就能获得一个管理所有 Claude Code agent 的控制面板。从任何 CLI session 输入 `&lt;-` 即可注册到控制面板。Cat Wu 的用法：在根代码目录运行，统一管理所有 agent——这个功能把 Claude Code 从单一对话变成了多 agent 的调度中心。</div>
+  <div class="card-footer"><span>❤️ 327</span><span>🔁 25</span><a href="https://x.com/_catwu/status/2053999857799672111" target="_blank">查看原文 →</a></div>
+</div>
+
+    </div>
+  </details>
+</section>
+<!-- /DAY:2026-05-12 -->
+<!-- DAY:2026-05-11 -->
+<section class="day" data-date="2026-05-11">
+  <details>
+    <summary><span class="day-date">2026年5月11日</span><span class="day-stats">7 位 builder · 9 条推文 · 1 篇博客</span></summary>
+    <div class="day-content">
+
+<div class="section-label">博客 Blog</div>
+<div class="card">
+  <div class="podcast-label">📝 Anthropic Engineering</div>
+  <div class="card-title"><a href="https://www.anthropic.com/engineering/managed-agents" target="_blank">Managed Agents：把大脑和双手分开</a></div>
+  <div class="excerpt">Anthropic 工程博客发布了关于 <b>Managed Agents</b> 架构演进的深度文章。核心洞见：把 Claude 的"大脑"（harness）与"双手"（sandbox/tools）以及"记忆"（session log）彻底解耦，各自成为独立接口，互相可以故障、替换而不影响对方。<br><br>效果显著：解耦后 p50 首 token 延迟下降约 60%，p95 下降超 90%。安全边界也更清晰——未受信任的代码跑在 sandbox 里，OAuth token 存在 vault 外，harness 对凭证完全不知情。<br><br>类比操作系统：就像 read() 命令在 1970 年代磁盘和现代 SSD 上都能跑，Managed Agents 的接口设计是为"尚未被设计出来的 harness"而生的。</div>
+</div>
+
+<div class="section-label">X / Twitter 动态</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Andrej Karpathy</span><a class="handle" href="https://x.com/karpathy" target="_blank">@karpathy</a><span style="color:#888;font-size:12px">前 OpenAI 联合创始人 / 前 Tesla AI 总监</span></div>
+  <div class="card-body">要问 LLM 输出的下一个界面是什么——Karpathy 的答案是 <b>HTML</b>。他的演进路径：原始文本 → Markdown → HTML → 最终是神经网络直接生成的交互式视频。核心理由：人类大脑约三分之一专门处理视觉，视觉是信息进入大脑的"十车道高速公路"。实用 tip：在 prompt 里加一句"structure your response as HTML"，在浏览器里打开生成文件，现在就能用，效果很好。</div>
+  <div class="card-footer"><span>❤️ 13,038</span><span>🔁 1,338</span><a href="https://x.com/karpathy/status/2053872850101285137" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
+  <div class="card-body">AI 时代会催生一种新职位：<b>AI 自动化工程师（AI automation engineer）</b>。不是数据科学家，也不是传统 SWE——而是深度嵌入业务流程的技术角色，负责把 agent 安全接入企业真实工作流、确保输出质量、设计人机协作节点，以及在模型升级时维护整套系统。Box 已经开始招聘这个岗位。他判断：这是 AI 在企业里打开的第一批新职位，未来大多数公司都会有。</div>
+  <div class="card-footer"><span>❤️ 298</span><span>🔁 28</span><a href="https://x.com/levie/status/2053672965125140915" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a></div>
+  <div class="card-body">密集的工具构建输出：用 Codex 对 OpenClaw 聊天接口做 <b>e2e 测试</b>；Birdclaw 接入了完整 Twitter 历史档案，可以查询任意收藏或书签过的旧推文；RepoBar 里内置了浏览器，选中 issue/PR/sha 时自动加载上下文供 agent 参考。他的工作哲学："你得给自己造更高效的工具。"</div>
+  <div class="card-footer"><span>❤️ 160 / 172 / 89</span><span>🔁 13 / 7 / 0</span><a href="https://x.com/steipete/status/2053744332675408151" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
+  <div class="card-body">@thinkymachines 的实时 AI 演示让他直呼："直接 framemog 了 Google DeepMind 和 OpenAI"——所有人对"<b>realtime（实时）</b>"的定义刚刚被大幅升级。</div>
+  <div class="card-footer"><span>❤️ 798</span><span>🔁 31</span><a href="https://x.com/swyx/status/2053960011748098462" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
+  <div class="card-body">"设计最高级、最重要的形式，实际上是对人类痛苦与苦难的纯粹转化。"——一句话把好设计的本质说清楚了。</div>
+  <div class="card-footer"><span>❤️ 334</span><span>🔁 16</span><a href="https://x.com/garrytan/status/2053689459032379860" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every 联合创始人</span></div>
+  <div class="card-body">"布鲁克林那个小办公室里的几个人，比硅谷的创始人/工程师领先 1-2 个月。" 没有点名，但有所指——AI 工具的前沿实践，往往在那些没什么包袱、每天真实使用的小团队里。</div>
+  <div class="card-footer"><span>❤️ 158</span><span>🔁 2</span><a href="https://x.com/danshipper/status/2053628011233095875" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Cat Wu</span><a class="handle" href="https://x.com/_catwu" target="_blank">@_catwu</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
+  <div class="card-body">征集 <b>Claude Code 云端版本</b>的用户反馈——桌面云选项、iOS 和 Android 应用均在测试中，开放 office hours 欢迎来试用并提意见。</div>
+  <div class="card-footer"><span>❤️ 71</span><span>🔁 2</span><a href="https://x.com/_catwu/status/2053873949646405879" target="_blank">查看原文 →</a></div>
+</div>
+
+    </div>
+  </details>
+</section>
+<!-- /DAY:2026-05-11 -->
+<!-- DAY:2026-05-10 -->
+<section class="day" data-date="2026-05-10">
+  <details>
+    <summary><span class="day-date">2026年5月10日</span><span class="day-stats">5 位 builder · 7 条推文 · 1 期播客</span></summary>
+    <div class="day-content">
+
+<div class="section-label">播客 Podcast</div>
+<div class="card">
+  <div class="podcast-label">🎙 No Priors</div>
+  <div class="card-title"><a href="https://www.youtube.com/watch?v=XAbKflCncDo" target="_blank">Baseten CEO Tuhin Srivastava：AI 推理市场、自定义模型与一年 30 倍增长</a></div>
+  <div class="excerpt">Baseten 创始人兼 CEO Tuhin Srivastava 今年预计营收超 10 亿美元，一年增长 30 倍。他的核心判断：<b>inference（推理）是最后一个市场</b>——就算 AGI 到来，剩下的也只有 inference。<br><br>几个清醒观察：95% 以上的 token 跑的都是经过定制的模型，没有一家客户在用原始开源权重；大模型公司不会轻易吃掉应用层，因为应用公司积累的用户信号只有他们自己才能获取；供应荒比外界认知的严重得多，Baseten 集群利用率长期维持在 90% 以上，每天下午 4 点开全公司产能会议。<br><br>关于 AI 成本下降与需求的关系，他给出了 Jevons 悖论的实证版本："价格越低，开发者就越舍得把智能塞进更多地方——agent 的运行时间越来越长，这就是我们看到的现实。"</div>
+</div>
+
+<div class="section-label">X / Twitter 动态</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Thariq</span><a class="handle" href="https://x.com/trq212" target="_blank">@trq212</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
+  <div class="card-body">有人用 AI 把 Bun 用 Rust 重写了，通过了 99.8% 的现有测试集。Thariq 的评价只有一句话：<b>"我们还不够有野心。"</b> 它真正指向的，是 AI 辅助大规模代码库重写正在从理论变成现实。</div>
+  <div class="card-footer"><span>❤️ 1,679</span><span>🔁 60</span><a href="https://x.com/trq212/status/2053559397654348159" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
+  <div class="card-body">提议把下一个模型命名为"goblin"——"几乎值得为了让你们开心这么干……" 9000+ 点赞和 2500+ 评论。表面是玩笑，实则承认：社区对 OpenAI 模型命名混乱的不满已经累积到 CEO 必须用幽默来公开回应的程度。</div>
+  <div class="card-footer"><span>❤️ 9,171</span><span>🔁 467</span><a href="https://x.com/sama/status/2053572868936761350" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every 联合创始人</span></div>
+  <div class="card-body">两个角度的 AI 落地观察：周末 hack，买了根线接上 MIDI 键盘，5 分钟内让 Codex 做出实时显示和弦并给出练习建议的网页应用，全程零代码；另外，新招的社交/YouTube 员工通过 A/B 测试发现了"惊人的增量提升"——非技术岗同样能在 AI 加持下产生量化决策。</div>
+  <div class="card-footer"><span>❤️ 184 / 344</span><span>🔁 11 / 4</span><a href="https://x.com/danshipper/status/2053551046299959760" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Ryo Lu</span><a class="handle" href="https://x.com/ryolu_" target="_blank">@ryolu_</a><span style="color:#888;font-size:12px">Cursor 设计师</span></div>
+  <div class="card-body">ryOS 现在有了连接到 Pieter Levels 复古 PC 的 IRC 桥——两个独立的个人操作系统项目可以互相通信了。极客浪漫主义的极致表达。</div>
+  <div class="card-footer"><span>❤️ 149</span><span>🔁 5</span><a href="https://x.com/ryolu_/status/2053523477878259951" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
+  <div class="card-body">分享了一张 <b>build vs buy SaaS</b> 决策分析图，并 @ 了 Aaron Levie 来校正观点。在 AI 让自建成本急剧下降的当下，"买软件还是自己造"的边界正在被快速重新定义。</div>
+  <div class="card-footer"><span>❤️ 65</span><span>🔁 1</span><a href="https://x.com/swyx/status/2053572059767427302" target="_blank">查看原文 →</a></div>
+</div>
+
+    </div>
+  </details>
+</section>
+<!-- /DAY:2026-05-10 -->
 <!-- DAY:2026-05-09 -->
 <section class="day" data-date="2026-05-09">
-  <details open>
+  <details>
     <summary><span class="day-date">2026年5月9日</span><span class="day-stats">9 位 builder · 12 条推文 · 1 期播客</span></summary>
     <div class="day-content">
 
