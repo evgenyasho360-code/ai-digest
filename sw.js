@@ -1,8 +1,8 @@
 self.addEventListener('push', event => {
   const data = event.data ? event.data.json() : {}
-  const title = data.title || 'AI Builders Digest'
+  const title = data.title || '灵感星图'
   const options = {
-    body: data.body || '今日 digest 已更新，点击查看',
+    body: data.body || '你的灵性创意记录台有新的提醒，点击查看。',
     icon: '/ai-digest/icon-192.png',
     badge: '/ai-digest/icon-192.png',
     data: { url: data.url || 'https://evgenyasho360-code.github.io/ai-digest/' },

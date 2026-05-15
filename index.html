@@ -1,746 +1,425 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Builders Digest</title>
+<title>灵感星图｜灵性创意记录台</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
   :root{
-    --bg:#0d0c09;
-    --bg2:#111009;
-    --card:#191712;
-    --rule:#232118;
-    --rule2:#38342a;
-    --gold:#c49238;
-    --gold-dim:rgba(196,146,56,.1);
-    --text:#e8e2d2;
-    --t2:#9a9485;
-    --t3:#5a5648;
-    --serif:'Source Serif 4',Georgia,serif;
-    --display:'Playfair Display','Times New Roman',serif;
-    --sans:'Inter',-apple-system,sans-serif;
+    --bg:#f7f3ea;
+    --surface:#fffdf8;
+    --surface-2:#f1eadc;
+    --ink:#2f2a24;
+    --muted:#7d7366;
+    --line:#e4d9c8;
+    --brand:#8d6bff;
+    --brand-2:#cf8b5f;
+    --brand-dark:#5b45b5;
+    --ok:#3f8f68;
+    --danger:#b75757;
+    --shadow:0 24px 70px rgba(75,56,35,.12);
+    --radius:24px;
+    --sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --serif:'Noto Serif SC','Songti SC',serif;
   }
 
+  *{box-sizing:border-box}
   body{
-    font-family:var(--serif);
-    background:var(--bg);
-    color:var(--text);
+    margin:0;
     min-height:100vh;
-    -webkit-font-smoothing:antialiased;
-    background-image:
-      repeating-linear-gradient(0deg,
-        transparent,transparent 28px,
-        rgba(255,255,255,.013) 28px,rgba(255,255,255,.013) 29px);
-  }
-
-  /* paper grain overlay */
-  body::after{
-    content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
-    opacity:.038;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat:repeat;background-size:300px;
-  }
-
-  ::-webkit-scrollbar{width:4px}
-  ::-webkit-scrollbar-track{background:var(--bg)}
-  ::-webkit-scrollbar-thumb{background:var(--rule2)}
-
-  /* ── MASTHEAD ─────────────────────────────── */
-  header{
-    position:sticky;top:0;z-index:20;
-    background:rgba(13,12,9,.97);
-    backdrop-filter:blur(16px);
-    text-align:center;padding:0;
-    border-bottom:1px solid var(--rule2);
-  }
-  header::before{
-    content:'';display:block;
-    height:5px;background:var(--bg);
-    border-top:3px solid rgba(232,226,210,.65);
-    border-bottom:1px solid var(--gold);
-  }
-  .mh-inner{padding:8px 24px 0}
-  header h1{
-    font-family:var(--display);
-    font-size:clamp(28px,6.5vw,58px);font-weight:900;
-    letter-spacing:clamp(5px,1.2vw,14px);text-transform:uppercase;
-    color:var(--text);line-height:1;
-  }
-  header .meta{
     font-family:var(--sans);
-    font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--t3);
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    border-top:1px solid rgba(255,255,255,.06);
-    padding:5px 0;margin:7px 0 0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at top left, rgba(141,107,255,.18), transparent 34rem),
+      radial-gradient(circle at 88% 18%, rgba(207,139,95,.18), transparent 24rem),
+      linear-gradient(135deg,#fbf7ef 0%,var(--bg) 52%,#efe7dc 100%);
   }
-  .meta-sep{color:var(--rule2)}
-  header::after{
-    content:'';display:block;
-    height:4px;background:var(--bg);
-    border-top:2px solid rgba(232,226,210,.5);
-    border-bottom:1px solid var(--gold);
-    opacity:.55;
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;opacity:.34;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
   }
+  button,input,textarea,select{font:inherit}
+  button{cursor:pointer;border:0}
+  .hidden{display:none!important}
 
-  /* ── LAYOUT ───────────────────────────────── */
-  .container{max-width:960px;margin:0 auto;padding:32px 24px 80px}
+  .app-shell{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:28px 0 48px;position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(145deg,var(--brand),#efc99f);display:grid;place-items:center;color:white;box-shadow:0 16px 36px rgba(141,107,255,.25);font-size:24px}
+  .brand h1{font-family:var(--serif);margin:0;font-size:clamp(24px,4vw,36px);letter-spacing:.05em}
+  .brand p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  .user-pill{display:flex;align-items:center;gap:12px;background:rgba(255,253,248,.72);border:1px solid rgba(228,217,200,.8);border-radius:999px;padding:8px 8px 8px 16px;backdrop-filter:blur(16px);box-shadow:0 12px 36px rgba(75,56,35,.08)}
+  .avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#ede4ff;color:var(--brand-dark);font-weight:800}
+  .ghost-btn,.primary-btn,.danger-btn{border-radius:999px;padding:11px 16px;font-weight:700;transition:.2s ease;display:inline-flex;align-items:center;gap:8px}
+  .ghost-btn{background:white;color:var(--ink);border:1px solid var(--line)}
+  .ghost-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(75,56,35,.09)}
+  .primary-btn{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:white;box-shadow:0 14px 28px rgba(91,69,181,.22)}
+  .primary-btn:hover{transform:translateY(-1px);box-shadow:0 18px 34px rgba(91,69,181,.28)}
+  .danger-btn{background:#fff2f2;color:var(--danger);border:1px solid #f2caca}
 
-  /* ── DAY BLOCK ────────────────────────────── */
-  .day{margin-bottom:56px}
-  details{background:transparent;border:none;overflow:visible}
+  .login-screen{min-height:calc(100vh - 64px);display:grid;place-items:center;padding:32px 0}
+  .login-card{width:min(980px,100%);display:grid;grid-template-columns:1fr 420px;background:rgba(255,253,248,.78);border:1px solid rgba(228,217,200,.8);border-radius:34px;overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+  .login-hero{padding:54px;background:linear-gradient(160deg,rgba(141,107,255,.12),rgba(207,139,95,.12));position:relative;overflow:hidden}
+  .login-hero::after{content:"✦";position:absolute;right:42px;top:34px;color:rgba(141,107,255,.22);font-size:84px}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--brand-dark);font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:#f0eaff;border:1px solid #ded3ff;border-radius:999px;padding:8px 12px}
+  .login-hero h2{font-family:var(--serif);font-size:clamp(34px,6vw,58px);line-height:1.12;margin:28px 0 16px;max-width:580px}
+  .login-hero p{color:var(--muted);line-height:1.8;font-size:16px;max-width:560px}
+  .ritual-list{display:grid;gap:14px;margin-top:34px}
+  .ritual-item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.54);border:1px solid rgba(228,217,200,.8);border-radius:18px;padding:14px}
+  .ritual-item span{font-size:20px}.ritual-item strong{display:block;margin-bottom:4px}.ritual-item small{color:var(--muted);line-height:1.5}
+  .login-panel{padding:42px;background:rgba(255,253,248,.92)}
+  .login-panel h3{font-size:24px;margin:0 0 8px}.login-panel>p{margin:0 0 26px;color:var(--muted);line-height:1.6}
+  label{display:block;font-weight:700;font-size:13px;margin-bottom:8px;color:#4d443a}
+  input,textarea,select{width:100%;border:1px solid var(--line);background:#fffdf8;color:var(--ink);border-radius:16px;padding:13px 14px;outline:none;transition:.2s ease}
+  textarea{min-height:128px;resize:vertical;line-height:1.7}
+  input:focus,textarea:focus,select:focus{border-color:rgba(141,107,255,.75);box-shadow:0 0 0 4px rgba(141,107,255,.12)}
+  .field{margin-bottom:18px}.hint{font-size:12px;color:var(--muted);line-height:1.6}.form-error{color:var(--danger);font-weight:700;margin:12px 0 0;font-size:13px}
+  .login-panel .primary-btn{width:100%;justify-content:center;margin-top:8px;padding:14px 18px}
 
-  summary{
-    display:flex;align-items:center;gap:14px;
-    padding:8px 0;
-    cursor:pointer;list-style:none;user-select:none;
-    border-top:1px solid rgba(232,226,210,.5);
-    border-bottom:1px solid var(--rule2);
-    margin-bottom:20px;
-  }
-  summary:hover{opacity:.82}
-  summary::-webkit-details-marker{display:none}
-  summary::before{
-    content:'▸';
-    font-family:var(--sans);font-size:10px;color:var(--t3);
-    flex-shrink:0;transition:transform .2s,color .2s;
-  }
-  details[open] summary::before{transform:rotate(90deg);color:var(--gold)}
+  .dashboard{display:grid;grid-template-columns:310px 1fr;gap:22px;align-items:start}
+  .panel{background:rgba(255,253,248,.82);border:1px solid rgba(228,217,200,.88);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+  .sidebar{padding:22px;position:sticky;top:20px}
+  .quote{font-family:var(--serif);font-size:22px;line-height:1.5;margin:0 0 8px}.quote-meta{color:var(--muted);font-size:13px;margin-bottom:22px}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}.stat{background:var(--surface-2);border-radius:18px;padding:14px}.stat b{display:block;font-size:24px}.stat span{color:var(--muted);font-size:12px}
+  .filters{display:grid;gap:10px}.filter-btn{width:100%;display:flex;justify-content:space-between;align-items:center;background:transparent;border-radius:14px;padding:12px;color:var(--muted);font-weight:700}.filter-btn.active,.filter-btn:hover{background:#f3edff;color:var(--brand-dark)}
 
-  .day-date{
-    font-family:var(--display);
-    font-size:clamp(18px,3vw,26px);font-weight:700;
-    color:var(--text);
-  }
-  .day-stats{
-    font-family:var(--sans);font-size:8px;
-    letter-spacing:2px;text-transform:uppercase;
-    color:var(--t3);margin-left:auto;
-  }
-  details[open] .day-stats{color:var(--t2)}
+  .main{display:grid;gap:18px}
+  .composer{padding:22px}.composer-header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}.composer h2,.entries h2{font-family:var(--serif);font-size:24px;margin:0}.composer p,.entries p{margin:6px 0 0;color:var(--muted);line-height:1.6}.form-grid{display:grid;grid-template-columns:1fr 170px;gap:14px}.form-actions{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px}.mood-row{display:flex;flex-wrap:wrap;gap:8px}.mood{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;color:var(--muted);font-weight:700}.mood.active{background:#efe9ff;border-color:#d7c9ff;color:var(--brand-dark)}
+  .entries{padding:22px}.entry-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:20px}.search{max-width:320px}.entry-list{display:grid;gap:14px}
+  .entry-card{border:1px solid var(--line);background:linear-gradient(180deg,#fffdf8,#fbf7ef);border-radius:22px;padding:18px;display:grid;gap:12px;animation:rise .24s ease}.entry-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.entry-card h3{font-family:var(--serif);font-size:21px;margin:0}.badge{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#f2ecff;color:var(--brand-dark);font-size:12px;font-weight:800}.entry-card p{margin:0;color:#554b40;line-height:1.8;white-space:pre-wrap}.entry-meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:12px}.entry-actions{display:flex;gap:8px}.icon-btn{width:36px;height:36px;border-radius:12px;background:#fff;border:1px solid var(--line);color:var(--muted)}.icon-btn:hover{color:var(--brand-dark);border-color:#d7c9ff;background:#f8f5ff}
+  .empty{border:1px dashed #d8cbb8;border-radius:22px;padding:34px;text-align:center;color:var(--muted);background:rgba(255,255,255,.42)}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-  .day-content{
-    columns:2;column-gap:20px;
-    column-rule:1px solid rgba(255,255,255,.05);
+  @media (max-width:880px){
+    .login-card,.dashboard{grid-template-columns:1fr}.login-hero,.login-panel{padding:30px}.sidebar{position:static}.topbar{align-items:flex-start;flex-direction:column}.user-pill{width:100%;justify-content:space-between}.form-grid{grid-template-columns:1fr}.entry-toolbar{align-items:stretch;flex-direction:column}.search{max-width:none}
   }
-
-  /* ── SECTION LABEL ────────────────────────── */
-  .section-label{
-    column-span:all;
-    font-family:var(--sans);font-size:8px;font-weight:600;
-    letter-spacing:4px;text-transform:uppercase;
-    color:var(--gold);
-    margin:20px 0 0;padding-bottom:7px;
-    display:flex;align-items:center;gap:10px;
-    border-bottom:1px solid var(--rule);
-  }
-  .section-label::before{
-    content:'';width:20px;height:1px;
-    background:var(--gold);flex-shrink:0;
-  }
-
-  /* ── CARDS ────────────────────────────────── */
-  .card{
-    position:relative;overflow:hidden;
-    background:var(--card);
-    border:1px solid var(--rule);
-    border-radius:3px;
-    padding:14px;
-    margin-bottom:14px;
-    break-inside:avoid;
-  }
-  .section-label+.card{margin-top:12px}
-
-  /* builder photo: blurred, behind dark veil */
-  .card::before{
-    content:'';
-    position:absolute;inset:-20%;
-    background-image:var(--avatar,none);
-    background-size:cover;background-position:center top;
-    filter:blur(32px) saturate(.35) brightness(.45);
-    opacity:.55;z-index:0;
-  }
-  /* dark gradient overlay */
-  .card:not(:has(.podcast-label))::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(
-      135deg,
-      rgba(13,12,9,.93) 0%,
-      rgba(13,12,9,.80) 50%,
-      rgba(13,12,9,.88) 100%
-    );
-    z-index:1;
-  }
-  .card>*{position:relative;z-index:2}
-
-  .card:has(.podcast-label){
-    column-span:all;
-    background:transparent;
-    border:none;border-radius:0;
-    border-top:1px solid var(--gold) !important;
-    border-bottom:1px solid var(--gold) !important;
-    padding:16px 0;margin-bottom:0;
-  }
-  .card:has(.podcast-label)::before,
-  .card:has(.podcast-label)::after{display:none}
-
-  /* ── AVATAR ───────────────────────────────── */
-  .avatar{
-    width:28px;height:28px;border-radius:50%;
-    object-fit:cover;flex-shrink:0;
-    border:1px solid rgba(255,255,255,.14);
-  }
-
-  /* ── BYLINE ───────────────────────────────── */
-  .card-header{
-    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-    margin-bottom:9px;padding-bottom:7px;
-    border-bottom:1px solid var(--rule);
-  }
-  .name{
-    font-family:var(--sans);font-weight:600;font-size:10.5px;
-    color:var(--text);letter-spacing:1.2px;text-transform:uppercase;
-  }
-  .handle{
-    font-family:var(--sans);color:var(--t3);font-size:10.5px;
-    text-decoration:none;transition:color .15s;
-  }
-  .handle:hover{color:var(--gold)}
-  .card-header>span[style]{
-    font-family:var(--serif) !important;
-    font-size:11.5px !important;color:var(--t3) !important;
-    font-style:italic !important;
-    background:none !important;border:none !important;
-    border-radius:0 !important;padding:0 !important;
-    margin-left:auto !important;letter-spacing:0 !important;
-    text-transform:none !important;white-space:nowrap;
-  }
-
-  /* ── BODY ─────────────────────────────────── */
-  .card-body{
-    font-family:var(--serif);
-    font-size:13.5px;line-height:1.8;
-    color:var(--t2);font-weight:300;
-  }
-  .card-body b{color:var(--text);font-weight:600}
-  .card-body code{
-    font-family:ui-monospace,'SF Mono',monospace;
-    font-size:12px;color:var(--gold);
-    background:var(--gold-dim);padding:1px 5px;
-  }
-
-  /* ── FOOTER ───────────────────────────────── */
-  .card-footer{
-    display:flex;gap:12px;align-items:center;
-    margin-top:9px;
-    font-family:var(--sans);font-size:10.5px;color:var(--t3);
-    flex-wrap:wrap;
-  }
-  .card-footer span{display:flex;align-items:center;gap:3px}
-  .card-footer a{
-    color:var(--gold);text-decoration:none;
-    margin-left:auto;font-family:var(--sans);
-    font-size:9.5px;font-weight:500;
-    letter-spacing:1.5px;text-transform:uppercase;
-    border-bottom:1px solid rgba(196,146,56,.3);padding-bottom:1px;
-    transition:opacity .15s;white-space:nowrap;
-  }
-  .card-footer a:hover{opacity:.6;border-color:transparent}
-
-  /* ── PODCAST / BLOG ───────────────────────── */
-  .podcast-label{
-    font-family:var(--sans);font-size:8px;font-weight:600;
-    letter-spacing:3.5px;text-transform:uppercase;
-    color:var(--gold);margin-bottom:10px;
-    display:flex;align-items:center;gap:10px;
-  }
-  .podcast-label::after{content:'';flex:1;height:1px;background:rgba(196,146,56,.2)}
-  .card-title{
-    font-family:var(--display);
-    font-size:25px;font-weight:700;
-    color:var(--text);margin-bottom:10px;
-    line-height:1.24;letter-spacing:-.3px;
-  }
-  .card-title a{color:inherit;text-decoration:none;transition:color .15s}
-  .card-title a:hover{color:var(--gold)}
-  .excerpt{
-    font-family:var(--serif);
-    font-size:13px;font-weight:300;font-style:italic;
-    color:var(--t2);line-height:1.82;
-    border-left:2px solid var(--gold);
-    padding-left:16px;margin-top:10px;
-  }
-  .excerpt b{font-style:normal;font-weight:600;color:var(--t2)}
-  .excerpt code{
-    font-style:normal;
-    font-family:ui-monospace,'SF Mono',monospace;
-    font-size:11px;color:var(--gold);
-    background:var(--gold-dim);padding:1px 4px;
-  }
-
-  .empty{color:var(--t3);font-size:13px;padding:16px 0;font-style:italic}
-
-  @media(max-width:640px){
-    .day-content{columns:1;column-rule:none}
-    header h1{letter-spacing:4px}
-  }
+  @media (max-width:560px){.app-shell{width:min(100% - 20px,1180px);padding-top:14px}.brand{align-items:flex-start}.brand p{font-size:12px}.login-card{border-radius:24px}.login-hero h2{font-size:36px}.stats{grid-template-columns:1fr}.form-actions{align-items:stretch;flex-direction:column}.primary-btn,.ghost-btn,.danger-btn{justify-content:center}.entry-top{flex-direction:column}}
 </style>
 </head>
 <body>
-<header>
-  <div class="mh-inner">
-    <h1>AI Builders Digest</h1>
-    <div class="meta"><span>每日自动更新</span><span class="meta-sep">·</span><span>历史内容自动保留</span></div>
+  <main id="loginScreen" class="login-screen app-shell" aria-labelledby="loginTitle">
+    <section class="login-card">
+      <div class="login-hero">
+        <span class="eyebrow">✧ Private Sanctuary</span>
+        <h2 id="loginTitle">把灵感、梦境与直觉，收进一座清澈的星图。</h2>
+        <p>这是一个本地优先的灵性创意记录网页：登录后可以写下灵感片段、为它们标记主题与心境，并在安静整齐的界面中回看自己的内在线索。</p>
+        <div class="ritual-list" aria-label="功能概览">
+          <div class="ritual-item"><span>🪷</span><div><strong>灵感记录</strong><small>随时保存冥想、梦境、仪式、写作与创作火花。</small></div></div>
+          <div class="ritual-item"><span>🌙</span><div><strong>登陆管理</strong><small>使用用户名和密码进入你的私人空间，数据保存在当前浏览器。</small></div></div>
+          <div class="ritual-item"><span>🧭</span><div><strong>主题筛选</strong><small>按「梦境」「冥想」「仪式」「创作」整理回看。</small></div></div>
+        </div>
+      </div>
+      <form id="loginForm" class="login-panel">
+        <h3>进入灵感星图</h3>
+        <p>首次使用会自动创建本地账户；之后请用同一组用户名和密码登录。</p>
+        <div class="field">
+          <label for="username">用户名</label>
+          <input id="username" name="username" autocomplete="username" placeholder="例如：moonwalker" required minlength="2">
+        </div>
+        <div class="field">
+          <label for="password">密码</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="至少 4 位" required minlength="4">
+        </div>
+        <p class="hint">提示：这是适合个人作品集或原型演示的前端登录，不会把数据上传到服务器。</p>
+        <button class="primary-btn" type="submit">登录 / 创建账户</button>
+        <p id="loginError" class="form-error" role="alert"></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="app" class="app-shell hidden">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✦</div>
+        <div>
+          <h1>灵感星图</h1>
+          <p>一个记录灵性创意、梦境与内在指引的安静工作台</p>
+        </div>
+      </div>
+      <div class="user-pill">
+        <div class="avatar" id="avatar">灵</div>
+        <strong id="currentUser">访客</strong>
+        <button id="logoutBtn" class="ghost-btn" type="button">退出</button>
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <aside class="sidebar panel">
+        <p class="quote">“每一个闪念，都可能是未来作品的种子。”</p>
+        <p class="quote-meta">今日仪式：安静写下第一句话，不急着解释它。</p>
+        <div class="stats">
+          <div class="stat"><b id="totalCount">0</b><span>全部记录</span></div>
+          <div class="stat"><b id="weekCount">0</b><span>近 7 天</span></div>
+        </div>
+        <nav class="filters" aria-label="记录分类">
+          <button class="filter-btn active" data-filter="全部" type="button">全部 <span id="countAll">0</span></button>
+          <button class="filter-btn" data-filter="梦境" type="button">梦境 <span id="countDream">0</span></button>
+          <button class="filter-btn" data-filter="冥想" type="button">冥想 <span id="countMeditation">0</span></button>
+          <button class="filter-btn" data-filter="仪式" type="button">仪式 <span id="countRitual">0</span></button>
+          <button class="filter-btn" data-filter="创作" type="button">创作 <span id="countCreation">0</span></button>
+        </nav>
+      </aside>
+
+      <div class="main">
+        <section class="composer panel" aria-labelledby="composerTitle">
+          <div class="composer-header">
+            <div>
+              <h2 id="composerTitle">写下新的灵感</h2>
+              <p>给它一个名字、一个主题和当下的能量状态。</p>
+            </div>
+            <button id="clearFormBtn" class="ghost-btn" type="button">清空</button>
+          </div>
+          <form id="entryForm">
+            <input type="hidden" id="editingId">
+            <div class="form-grid">
+              <div class="field">
+                <label for="entryTitle">标题</label>
+                <input id="entryTitle" placeholder="例如：蓝色火焰的梦" required>
+              </div>
+              <div class="field">
+                <label for="entryCategory">主题</label>
+                <select id="entryCategory">
+                  <option>梦境</option><option>冥想</option><option>仪式</option><option>创作</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="entryBody">内容</label>
+              <textarea id="entryBody" placeholder="记录画面、身体感受、关键词、想要继续探索的问题……" required></textarea>
+            </div>
+            <div class="field">
+              <label>心境</label>
+              <div class="mood-row" id="moodRow">
+                <button class="mood active" data-mood="平静" type="button">平静</button>
+                <button class="mood" data-mood="被点亮" type="button">被点亮</button>
+                <button class="mood" data-mood="神秘" type="button">神秘</button>
+                <button class="mood" data-mood="需要沉淀" type="button">需要沉淀</button>
+              </div>
+            </div>
+            <div class="form-actions">
+              <p class="hint">所有记录会保存在浏览器 localStorage，刷新页面也不会丢失。</p>
+              <button class="primary-btn" type="submit">保存记录</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="entries panel" aria-labelledby="entriesTitle">
+          <div class="entry-toolbar">
+            <div>
+              <h2 id="entriesTitle">我的灵性创意</h2>
+              <p id="filterLabel">正在查看全部记录</p>
+            </div>
+            <input id="searchInput" class="search" type="search" placeholder="搜索标题或内容">
+          </div>
+          <div id="entryList" class="entry-list"></div>
+        </section>
+      </div>
+    </section>
   </div>
-</header>
-<div class="container" id="digests">
-<!-- DIGESTS_START -->
-<!-- DAY:2026-05-12 -->
-<section class="day" data-date="2026-05-12">
-  <details open>
-    <summary><span class="day-date">2026年5月12日</span><span class="day-stats">2 位 builder · 2 条推文 · 1 期播客</span></summary>
-    <div class="day-content">
 
-<div class="section-label">播客 Podcast</div>
-<div class="card">
-  <div class="podcast-label">🎙 No Priors</div>
-  <div class="card-title"><a href="https://www.youtube.com/watch?v=g5TWnUjbeFM" target="_blank">Long Lake CEO Alexander Taubman：全球首例 AI 驱动的上市公司私有化，63 亿美元收购美国运通商旅</a></div>
-  <div class="excerpt">Long Lake Management 联合创始人兼 CEO Alexander Taubman，正在以 63 亿美元私有化美国运通全球商旅（Amex Global Business Travel）——这被认为是全球首例 <b>AI take private（AI 驱动的私有化）</b>。Long Lake 过去已完成约 30 次收购，以自研的 Nexus AI 平台改造传统服务业，已是该行业增长最快的公司，年增 20%+。<br><br>他的核心判断反直觉：<b>AI 不只是降本，而是把劳动密集型服务公司变成"按软件逻辑增长"的公司</b>——当你让员工生产力提升 30-40%，边际雇佣成本崩塌，增长飞轮就此启动。而不是传统 PE 那套"买来裁员然后卖掉"，Long Lake 要永久持有，像 Berkshire Hathaway 一样复利。<br><br>"AI 渗透率在真实企业里还只有约 1%，99% 的机会还没来。"</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Amanda Askell</span><a class="handle" href="https://x.com/AmandaAskell" target="_blank">@AmandaAskell</a><span style="color:#888;font-size:12px">Anthropic 哲学家 / 伦理研究员</span></div>
-  <div class="card-body">和同事 Joe 一起把 <b>Claude 宪法（Claude's constitution）</b>录制成了有声书，现在可以收听了。她在想下一步加上"快进模式"——用读宪法来检验 AI 价值观的方式，正在从文本变成更易触达的媒介。</div>
-  <div class="card-footer"><span>❤️ 416</span><span>🔁 22</span><a href="https://x.com/AmandaAskell/status/2054010971765805486" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Cat Wu</span><a class="handle" href="https://x.com/_catwu" target="_blank">@_catwu</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
-  <div class="card-body">在终端运行 <b>`claude agents`</b>，就能获得一个管理所有 Claude Code agent 的控制面板。从任何 CLI session 输入 `&lt;-` 即可注册到控制面板。Cat Wu 的用法：在根代码目录运行，统一管理所有 agent——这个功能把 Claude Code 从单一对话变成了多 agent 的调度中心。</div>
-  <div class="card-footer"><span>❤️ 327</span><span>🔁 25</span><a href="https://x.com/_catwu/status/2053999857799672111" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-12 -->
-<!-- DAY:2026-05-11 -->
-<section class="day" data-date="2026-05-11">
-  <details>
-    <summary><span class="day-date">2026年5月11日</span><span class="day-stats">7 位 builder · 9 条推文 · 1 篇博客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">博客 Blog</div>
-<div class="card">
-  <div class="podcast-label">📝 Anthropic Engineering</div>
-  <div class="card-title"><a href="https://www.anthropic.com/engineering/managed-agents" target="_blank">Managed Agents：把大脑和双手分开</a></div>
-  <div class="excerpt">Anthropic 工程博客发布了关于 <b>Managed Agents</b> 架构演进的深度文章。核心洞见：把 Claude 的"大脑"（harness）与"双手"（sandbox/tools）以及"记忆"（session log）彻底解耦，各自成为独立接口，互相可以故障、替换而不影响对方。<br><br>效果显著：解耦后 p50 首 token 延迟下降约 60%，p95 下降超 90%。安全边界也更清晰——未受信任的代码跑在 sandbox 里，OAuth token 存在 vault 外，harness 对凭证完全不知情。<br><br>类比操作系统：就像 read() 命令在 1970 年代磁盘和现代 SSD 上都能跑，Managed Agents 的接口设计是为"尚未被设计出来的 harness"而生的。</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Andrej Karpathy</span><a class="handle" href="https://x.com/karpathy" target="_blank">@karpathy</a><span style="color:#888;font-size:12px">前 OpenAI 联合创始人 / 前 Tesla AI 总监</span></div>
-  <div class="card-body">要问 LLM 输出的下一个界面是什么——Karpathy 的答案是 <b>HTML</b>。他的演进路径：原始文本 → Markdown → HTML → 最终是神经网络直接生成的交互式视频。核心理由：人类大脑约三分之一专门处理视觉，视觉是信息进入大脑的"十车道高速公路"。实用 tip：在 prompt 里加一句"structure your response as HTML"，在浏览器里打开生成文件，现在就能用，效果很好。</div>
-  <div class="card-footer"><span>❤️ 13,038</span><span>🔁 1,338</span><a href="https://x.com/karpathy/status/2053872850101285137" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
-  <div class="card-body">AI 时代会催生一种新职位：<b>AI 自动化工程师（AI automation engineer）</b>。不是数据科学家，也不是传统 SWE——而是深度嵌入业务流程的技术角色，负责把 agent 安全接入企业真实工作流、确保输出质量、设计人机协作节点，以及在模型升级时维护整套系统。Box 已经开始招聘这个岗位。他判断：这是 AI 在企业里打开的第一批新职位，未来大多数公司都会有。</div>
-  <div class="card-footer"><span>❤️ 298</span><span>🔁 28</span><a href="https://x.com/levie/status/2053672965125140915" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a></div>
-  <div class="card-body">密集的工具构建输出：用 Codex 对 OpenClaw 聊天接口做 <b>e2e 测试</b>；Birdclaw 接入了完整 Twitter 历史档案，可以查询任意收藏或书签过的旧推文；RepoBar 里内置了浏览器，选中 issue/PR/sha 时自动加载上下文供 agent 参考。他的工作哲学："你得给自己造更高效的工具。"</div>
-  <div class="card-footer"><span>❤️ 160 / 172 / 89</span><span>🔁 13 / 7 / 0</span><a href="https://x.com/steipete/status/2053744332675408151" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
-  <div class="card-body">@thinkymachines 的实时 AI 演示让他直呼："直接 framemog 了 Google DeepMind 和 OpenAI"——所有人对"<b>realtime（实时）</b>"的定义刚刚被大幅升级。</div>
-  <div class="card-footer"><span>❤️ 798</span><span>🔁 31</span><a href="https://x.com/swyx/status/2053960011748098462" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
-  <div class="card-body">"设计最高级、最重要的形式，实际上是对人类痛苦与苦难的纯粹转化。"——一句话把好设计的本质说清楚了。</div>
-  <div class="card-footer"><span>❤️ 334</span><span>🔁 16</span><a href="https://x.com/garrytan/status/2053689459032379860" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every 联合创始人</span></div>
-  <div class="card-body">"布鲁克林那个小办公室里的几个人，比硅谷的创始人/工程师领先 1-2 个月。" 没有点名，但有所指——AI 工具的前沿实践，往往在那些没什么包袱、每天真实使用的小团队里。</div>
-  <div class="card-footer"><span>❤️ 158</span><span>🔁 2</span><a href="https://x.com/danshipper/status/2053628011233095875" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Cat Wu</span><a class="handle" href="https://x.com/_catwu" target="_blank">@_catwu</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
-  <div class="card-body">征集 <b>Claude Code 云端版本</b>的用户反馈——桌面云选项、iOS 和 Android 应用均在测试中，开放 office hours 欢迎来试用并提意见。</div>
-  <div class="card-footer"><span>❤️ 71</span><span>🔁 2</span><a href="https://x.com/_catwu/status/2053873949646405879" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-11 -->
-<!-- DAY:2026-05-10 -->
-<section class="day" data-date="2026-05-10">
-  <details>
-    <summary><span class="day-date">2026年5月10日</span><span class="day-stats">5 位 builder · 7 条推文 · 1 期播客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">播客 Podcast</div>
-<div class="card">
-  <div class="podcast-label">🎙 No Priors</div>
-  <div class="card-title"><a href="https://www.youtube.com/watch?v=XAbKflCncDo" target="_blank">Baseten CEO Tuhin Srivastava：AI 推理市场、自定义模型与一年 30 倍增长</a></div>
-  <div class="excerpt">Baseten 创始人兼 CEO Tuhin Srivastava 今年预计营收超 10 亿美元，一年增长 30 倍。他的核心判断：<b>inference（推理）是最后一个市场</b>——就算 AGI 到来，剩下的也只有 inference。<br><br>几个清醒观察：95% 以上的 token 跑的都是经过定制的模型，没有一家客户在用原始开源权重；大模型公司不会轻易吃掉应用层，因为应用公司积累的用户信号只有他们自己才能获取；供应荒比外界认知的严重得多，Baseten 集群利用率长期维持在 90% 以上，每天下午 4 点开全公司产能会议。<br><br>关于 AI 成本下降与需求的关系，他给出了 Jevons 悖论的实证版本："价格越低，开发者就越舍得把智能塞进更多地方——agent 的运行时间越来越长，这就是我们看到的现实。"</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Thariq</span><a class="handle" href="https://x.com/trq212" target="_blank">@trq212</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
-  <div class="card-body">有人用 AI 把 Bun 用 Rust 重写了，通过了 99.8% 的现有测试集。Thariq 的评价只有一句话：<b>"我们还不够有野心。"</b> 它真正指向的，是 AI 辅助大规模代码库重写正在从理论变成现实。</div>
-  <div class="card-footer"><span>❤️ 1,679</span><span>🔁 60</span><a href="https://x.com/trq212/status/2053559397654348159" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
-  <div class="card-body">提议把下一个模型命名为"goblin"——"几乎值得为了让你们开心这么干……" 9000+ 点赞和 2500+ 评论。表面是玩笑，实则承认：社区对 OpenAI 模型命名混乱的不满已经累积到 CEO 必须用幽默来公开回应的程度。</div>
-  <div class="card-footer"><span>❤️ 9,171</span><span>🔁 467</span><a href="https://x.com/sama/status/2053572868936761350" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every 联合创始人</span></div>
-  <div class="card-body">两个角度的 AI 落地观察：周末 hack，买了根线接上 MIDI 键盘，5 分钟内让 Codex 做出实时显示和弦并给出练习建议的网页应用，全程零代码；另外，新招的社交/YouTube 员工通过 A/B 测试发现了"惊人的增量提升"——非技术岗同样能在 AI 加持下产生量化决策。</div>
-  <div class="card-footer"><span>❤️ 184 / 344</span><span>🔁 11 / 4</span><a href="https://x.com/danshipper/status/2053551046299959760" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Ryo Lu</span><a class="handle" href="https://x.com/ryolu_" target="_blank">@ryolu_</a><span style="color:#888;font-size:12px">Cursor 设计师</span></div>
-  <div class="card-body">ryOS 现在有了连接到 Pieter Levels 复古 PC 的 IRC 桥——两个独立的个人操作系统项目可以互相通信了。极客浪漫主义的极致表达。</div>
-  <div class="card-footer"><span>❤️ 149</span><span>🔁 5</span><a href="https://x.com/ryolu_/status/2053523477878259951" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
-  <div class="card-body">分享了一张 <b>build vs buy SaaS</b> 决策分析图，并 @ 了 Aaron Levie 来校正观点。在 AI 让自建成本急剧下降的当下，"买软件还是自己造"的边界正在被快速重新定义。</div>
-  <div class="card-footer"><span>❤️ 65</span><span>🔁 1</span><a href="https://x.com/swyx/status/2053572059767427302" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-10 -->
-<!-- DAY:2026-05-09 -->
-<section class="day" data-date="2026-05-09">
-  <details>
-    <summary><span class="day-date">2026年5月9日</span><span class="day-stats">9 位 builder · 12 条推文 · 1 期播客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">播客 Podcast</div>
-<div class="card">
-  <div class="podcast-label">🎙 The MAD Podcast</div>
-  <div class="card-title"><a href="https://www.youtube.com/watch?v=DvyZcCfepeI" target="_blank">Zico Kolter（OpenAI 董事会 / CMU）：你无法通过"越变越大"让模型变得更安全</a></div>
-  <div class="excerpt">CMU 机器学习系主任、OpenAI 董事会成员 Zico Kolter 在 MAD 播客中谈到了他对 AI 安全的核心判断。他直言：规模扩展本身并不能解决安全问题，我们需要专门的对齐研究。他把 <b>prompt injection（提示注入）</b> 列为 agentic AI 的首要攻击面——特别是当 agent 拥有工具调用能力、能操作外部系统时，恶意内容注入的威胁会被极度放大。关于 LLM 的本质，他给出了一个务实的视角：本质上是 200-300 行 Python，核心是矩阵乘法，但涌现能力依然让最聪明的人无法完全解释。他在 OpenAI 董事会的角色，是在公司面临快速商业化压力时，确保安全和治理不被忽视。</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Claude</span><a class="handle" href="https://x.com/claudeai" target="_blank">@claudeai</a><span style="color:#888;font-size:12px">Anthropic 官方账号</span></div>
-  <div class="card-body">Claude for Excel、PowerPoint、Word 正式 GA，Outlook 进入公开测试。Anthropic 的 Microsoft 365 集成全面落地——你的 Office 工具里现在直接内置了 Claude。</div>
-  <div class="card-footer"><span>❤️ 30,256</span><span>🔁 1,451</span><a href="https://x.com/claudeai/status/2052445786651168849" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Alex Albert</span><a class="handle" href="https://x.com/alexalbert__" target="_blank">@alexalbert__</a><span style="color:#888;font-size:12px">Anthropic 开发者关系负责人</span></div>
-  <div class="card-body">Firefox 在 2025 年 4 月借助 Claude Mythos Preview，修复的安全漏洞数量超过过去 15 个月的总和。这不是新闻稿里的数字——是真实生产环境中 AI 辅助安全研究的结果。</div>
-  <div class="card-footer"><span>❤️ 11,614</span><span>🔁 694</span><a href="https://x.com/alexalbert__/status/2052468573516513762" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
-  <div class="card-body">开发者正在"<b>宝可梦进化成超级英雄</b>"——Sam 用这个比喻描述 AI 工具如何让普通工程师拥有此前无法想象的能力。他还注意到：人们和 AI 的互动方式正在改变，<b>语音（voice）</b>的使用频率在悄悄上升；和 AI 互动越来越像是"思考，而非打字"。</div>
-  <div class="card-footer"><span>❤️ 3,046</span><span>🔁 152</span><a href="https://x.com/sama/status/2052485051812909530" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a></div>
-  <div class="card-body">分享了两个真实使用场景：用 <b>/goal</b> 命令配合 GPT 5.5 做大规模代码重构，效果远超预期；另外他正在测试 OpenClaw agents 之间互相对话、委托 cron 任务的能力——agent 间协作正从概念变成日常工作流。</div>
-  <div class="card-footer"><span>❤️ 1,957</span><span>🔁 89</span><a href="https://x.com/steipete/status/2052514752245481675" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Madhu Guru</span><a class="handle" href="https://x.com/realmadhuguru" target="_blank">@realmadhuguru</a><span style="color:#888;font-size:12px">前 Google 高级工程师</span></div>
-  <div class="card-body">在参与构建 Gemini 之后，宣布离开 Google。他没有给出详细解释，但语气里有一种平静的笃定——这是那种"该做的做完了，该去的地方在别处"的离开。</div>
-  <div class="card-footer"><span>❤️ 1,104</span><span>🔁 47</span><a href="https://x.com/realmadhuguru/status/2052490869320946037" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Amjad Masad</span><a class="handle" href="https://x.com/amasad" target="_blank">@amasad</a><span style="color:#888;font-size:12px">Replit CEO</span></div>
-  <div class="card-body">Replit 目前托管着最热门的病毒式请愿网站——这不在他的产品规划里，但恰恰说明了一件事：当工具足够好用，用户会把它带去意想不到的地方。</div>
-  <div class="card-footer"><span>❤️ 1,023</span><span>🔁 38</span><a href="https://x.com/amasad/status/2052478595277467703" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
-  <div class="card-body">随着 AI 让基础功能趋于商品化，真正的竞争正在向销售、市场和客户成功迁移。他的判断：差异化的战场已经从"我们的 AI 更聪明"转移到"我们更懂你的业务"。</div>
-  <div class="card-footer"><span>❤️ 167</span><span>🔁 12</span><a href="https://x.com/levie/status/2052566788236509254" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every 联合创始人</span></div>
-  <div class="card-body">AI 平台战的本质，是把 Anthropic API 变成云基础设施——就像 AWS 对待计算资源一样。他认为赢家不是"最聪明的模型"，而是"最深嵌入开发者工作流"的那个。</div>
-  <div class="card-footer"><span>❤️ 64</span><span>🔁 8</span><a href="https://x.com/danshipper/status/2052501376195080381" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
-  <div class="card-body">GStack v1.28 发布，同时推出 GBrain 瘦客户端模式——为资源受限环境（移动端、边缘设备）优化的轻量部署方式。他自己每天用它管理 10 万个 markdown 文件和 agent 工作流。</div>
-  <div class="card-footer"><span>❤️ 87</span><span>🔁 6</span><a href="https://x.com/garrytan/status/2052588548126364028" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-09 -->
-<!-- DAY:2026-05-08 -->
-<section class="day" data-date="2026-05-08">
-  <details>
-    <summary><span class="day-date">2026年5月8日</span><span class="day-stats">4 位 builder · 6 条推文</span></summary>
-    <div class="day-content">
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Yang</span><a class="handle" href="https://x.com/petergyang" target="_blank">@petergyang</a><span style="color:#888;font-size:12px">Roblox 产品负责人，AI 简报作者</span></div>
-  <div class="card-body">在 Sequoia 活动现场记录了 Dario 和 Daniela Amodei 的关键金句。Dario 透露 Anthropic 今年早些时候实现了<b>使用量与营收 80 倍增长</b>，并承诺持续获取更多算力。核心战略洞见："<b>为指数级增长而构建</b>——有些产品用当前模型无法实现，但下一代可以，这让内部实验变得极为重要。" Daniela 则指出，模型的演进路径是从写代码 → 软件工程 → <b>直接帮助企业成长</b>，产品在模型能力过强时会触达饱和，要求创始人持续预判下一个大机会。</div>
-  <div class="card-footer"><span>❤️ 249</span><span>🔁 6</span><a href="https://x.com/petergyang/status/2052123472583864780" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Thariq</span><a class="handle" href="https://x.com/trq212" target="_blank">@trq212</a><span style="color:#888;font-size:12px">Anthropic Claude Code 工程师</span></div>
-  <div class="card-body">转述了同一场活动上 Dario 对开发者的直接承诺："<b>我们每天都在为你们争取更多算力，会尽我们所能地持续获取。</b>" 该推文迅速成为近期 Anthropic 账号下互动最高的内容之一——对于长期被速率限制困扰的开发者来说，这是来自 CEO 层面的公开保证。</div>
-  <div class="card-footer"><span>❤️ 1319</span><span>🔁 45</span><a href="https://x.com/trq212/status/2052250816720056604" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Zara Zhang</span><a class="handle" href="https://x.com/zarazhangrui" target="_blank">@zarazhangrui</a><span style="color:#888;font-size:12px">Builder</span></div>
-  <div class="card-body">分享了与 Claude Code 创始人 Boris Cherny 访谈中最难忘的三个细节：他夜间同时运行<b>数千个 agent</b> 并发执行任务；如今几乎完全在<b>手机上</b>使用 Claude Code 工作；以及他的核心预言——编程将成为如读写一样普及的基础技能，"<b>这是软件的印刷术时刻</b>"。</div>
-  <div class="card-footer"><span>❤️ 37</span><span>🔁 6</span><a href="https://x.com/zarazhangrui/status/2052277868319916402" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Claude</span><a class="handle" href="https://x.com/claudeai" target="_blank">@claudeai</a><span style="color:#888;font-size:12px">Anthropic 官方账号</span></div>
-  <div class="card-body">官方宣布两项新 agent 能力：<b>Outcomes</b>——你设定质量评判标准，独立 grader 模型检验输出，agent 反复迭代直至达标，完成后通过 webhook 通知；<b>Dreaming</b>——agent 自动回顾历史会话、提炼规律、整理记忆，让 agent 随时间持续学习进化（目前需申请早期访问）。</div>
-  <div class="card-footer"><span>❤️ 1704</span><span>🔁 64</span><a href="https://x.com/claudeai/status/2052067400690851842" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-08 -->
-<!-- DAY:2026-05-07 -->
-<section class="day" data-date="2026-05-07">
-  <details>
-    <summary><span class="day-date">2026年5月7日</span><span class="day-stats">2 位 builder · 2 条推文 · 1 篇博客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">官方博客 Official Blogs</div>
-<div class="card">
-  <div class="podcast-label">📝 Anthropic Engineering</div>
-  <div class="card-title"><a href="https://www.anthropic.com/engineering/claude-code-auto-mode" target="_blank">Claude Code auto mode：一种更安全的跳过权限审批方式</a></div>
-  <div class="excerpt">Anthropic 发布 Claude Code 的 <b>auto mode</b>，填补了"每次手动审批"和 <code>--dangerously-skip-permissions</code> 全量放行之间的空白。核心是两层防御：输入层用 <b>prompt injection（提示注入）</b>探针扫描工具输出，发现疑似劫持内容时向 agent 发出警告；输出层则用基于 Sonnet 4.6 的 transcript classifier 进行二阶段分类——第一阶段快速单 token 过滤（宁可误拦，不漏危险），第二阶段仅对被拦截的 action 进行 chain-of-thought 推理以降低误报。<br><br>实测数据：在 1 万条真实内部流量中，误报率（FPR）从 stage 1 的 8.5% 降至完整 pipeline 的 0.4%；对 52 条真实"过度主动"行为的漏报率（FNR）为 17%。Anthropic 坦承：auto mode 面向的是因审批疲劳而已经无脑放行的用户，而非认真手动审批每个 action 的用户的替代品。</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
-  <div class="card-body">分享了一张从 WSJ 重建的估值对比图：OpenAI 估值 8500 亿美元，ARR 约 300 亿；蚂蚁集团估值约 9000 亿美元，ARR 约 440 亿（但按 OpenAI 会计口径可能低 80-100 亿）。两家体量相近的巨头，收入与估值的微妙差距值得关注。</div>
-  <div class="card-footer"><span>❤️ 3</span><span>🔁 1</span><a href="https://x.com/swyx/status/2051440392722391180" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Aditya Agarwal</span><a class="handle" href="https://x.com/adityaag" target="_blank">@adityaag</a><span style="color:#888;font-size:12px">South Park Commons General Partner，前 Dropbox CTO</span></div>
-  <div class="card-body">"我们从未想成为一个加速器。没有方向的速度毫无意义。"——对当前创业生态"速度即美德"叙事的清醒反驳。</div>
-  <div class="card-footer"><span>❤️ 65</span><span>🔁 3</span><a href="https://x.com/adityaag/status/2051330205902581842" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-07 -->
-<!-- DAY:2026-05-06 -->
-<section class="day" data-date="2026-05-06">
-  <details>
-    <summary><span class="day-date">2026年5月6日</span><span class="day-stats">12 位 builder · 25 条推文 · 1 期播客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">播客 Podcast</div>
-<div class="card">
-  <div class="podcast-label">🎙 Training Data</div>
-  <div class="card-title"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank">Waymo Dmitri Dolgov：2000万次出行，以及走向完全自动驾驶的路</a></div>
-  <div class="excerpt">Waymo 联合创始人兼 CEO Dmitri Dolgov 在 Training Data 现场分享了他的故事：从苏联出生、辗转日本和美国求学，最终回到莫斯科物理技术学院（MIPT）读完物理与数学，再拿到 AI 博士学位。2005年他参与了 DARPA 无人驾驶挑战赛，从那一刻起再没回头。<br><br>他对<b>autonomous vehicles（自动驾驶）</b>的判断：使命足够强大，技术极度有趣，而且你可以亲身体验产品——这三点让他坚持了二十多年。Waymo 目前已完成超过 2000 万次真实道路出行，他认为通往完全自动驾驶的路已经清晰。</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
-  <div class="card-body">"对<b>voice model（语音模型）</b>越来越感到兴奋——很有趣的是，大家已经开始改变和 AI 互动的方式了。"<br><br>另外，Sam 还表示会为那些没能参加 GPT-5.5 派对的申请者"安排一些好事"。</div>
-  <div class="card-footer"><span>❤️ 4,451 / 7,348</span><span>🔁 162</span><a href="https://x.com/sama/status/2051464865634742334" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
-  <div class="card-body">Anthropic 和 OpenAI 都在推出帮助企业部署 <b>AI agent</b> 的新计划。他的判断：这个趋势现在还早期，但会快速爆发。随着 agent 从写代码延伸到更广泛的知识工作，企业需要认真升级 IT 系统、为 agent 提供所需的上下文，并建立相应的治理机制。</div>
-  <div class="card-footer"><span>❤️ 836</span><span>🔁 110</span><a href="https://x.com/levie/status/2051344780328858040" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Guillermo Rauch</span><a class="handle" href="https://x.com/rauchg" target="_blank">@rauchg</a><span style="color:#888;font-size:12px">Vercel CEO</span></div>
-  <div class="card-body">发布 <b>npx deepsec</b>——一个开源的 <b>agent orchestrator（智能体编排工具）</b>，专门用于深度安全审查。Vercel 内部使用后发现：<b>coding agent（编码智能体）</b>能在几分钟内找到人工需要数天才能发现的严重漏洞，因此决定开源。</div>
-  <div class="card-footer"><span>❤️ 1,229</span><span>🔁 86</span><a href="https://x.com/rauchg/status/2051386798899888539" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
-  <div class="card-body">GBrain v0.27 发布，新增对多种非 Anthropic/OpenAI 的 <b>embedding</b> 和 <b>LLM</b> 的支持。他解释 GBrain 的差异化：不是单纯的记忆层、代码工具或搜索引擎，而是三者在同一个图（graph）下统一，用一个查询界面搞定一切。他自己每天配合 10 万个 <b>markdown</b> 文件和 OpenClaw+Hermes Agent 使用。</div>
-  <div class="card-footer"><span>❤️ 308 / 118</span><span>🔁 10</span><a href="https://x.com/garrytan/status/2051525161380364315" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Nikunj Kothari</span><a class="handle" href="https://x.com/nikunj" target="_blank">@nikunj</a><span style="color:#888;font-size:12px">FPV Ventures Partner</span></div>
-  <div class="card-body">"Gemini Flash 便宜得离谱，效果还超好——100 万 <b>context window（上下文窗口）</b>加结构化输出，是我生产环境最常用的模型。"<br><br>另外他也观察到：2023-2025 年这批初创公司太注重发布视频和增长，却忽视了留存（<b>retention</b>）——拿到融资，但钱还是打了水漂。</div>
-  <div class="card-footer"><span>❤️ 252 / 262</span><span>🔁 10</span><a href="https://x.com/nikunj/status/2051321911741972900" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a></div>
-  <div class="card-body">Crabbox 0.5.0 发布：支持桌面/浏览器<b>lease（租用）</b>、<b>VNC</b> + 认证 WebVNC、AWS Windows + WSL2、截图和应用启动。可以在临时 crabbox 里直接复现 bug，agent 配置好现场环境后修复并在 PR 上发视频——远程 CI 盒子越来越好用了。</div>
-  <div class="card-footer"><span>❤️ 260 / 119</span><span>🔁 18</span><a href="https://x.com/steipete/status/2051485798613111116" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Yang</span><a class="handle" href="https://x.com/petergyang" target="_blank">@petergyang</a></div>
-  <div class="card-body">AI 渗透知识工作的三个阶段：编程是第一个前沿，知识工作是第二个，个人 <b>agent</b> 是第三个。<br><br>另外他也在问：怎么让 8 岁的孩子开始用 agent 做点真实的东西，能分享给班级和老师——也许还能赚到人生第一笔钱？</div>
-  <div class="card-footer"><span>❤️ 121</span><span>🔁 11</span><a href="https://x.com/petergyang/status/2051508988936937764" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Amjad Masad</span><a class="handle" href="https://x.com/amasad" target="_blank">@amasad</a><span style="color:#888;font-size:12px">Replit CEO</span></div>
-  <div class="card-body">分享了两个 Replit 用户案例：一个创业者用它找到了投资人并拿到会面；另一个是为听障学生开发的多模态学习平台——他认为这是 AI 教育应用的正确方向。</div>
-  <div class="card-footer"><span>❤️ 124</span><span>🔁 11</span><a href="https://x.com/amasad/status/2051406536443035922" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-06 -->
-<!-- DAY:2026-05-04 -->
-<section class="day" data-date="2026-05-04">
-  <details>
-    <summary><span class="day-date">2026年5月4日</span><span class="day-stats">11 位 builder · 23 条推文 · 1 期播客</span></summary>
-    <div class="day-content">
-
-<div class="section-label">播客 Podcast</div>
-<div class="card">
-  <div class="podcast-label">🎙 Training Data</div>
-  <div class="card-title"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank">OpenAI Greg Brockman：为什么"人类注意力"已成为新的瓶颈</a></div>
-  <div class="excerpt">OpenAI 联合创始人 Greg Brockman 谈 <b>compute（算力）</b>竞争：商业模式很简单——买入、租用、自建算力，加价卖出。只要利润为正就应该无限扩张，因为对"智能"的需求是无上限的。被问到算力够不够，他直接回答："不够。"<br><br>真正的瓶颈已不再是 GPU，而是人类工程师的注意力。谁能解放人的注意力，谁就掌握了下一阶段的增长密码。</div>
-</div>
-
-<div class="section-label">X / Twitter 动态</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span class="role" style="color:#888;font-size:12px">OpenAI CEO</span></div>
-  <div class="card-body">"我一直以为自己更想要模型便宜、更快，但现在来看，让模型更聪明仍然是最重要的事。"</div>
-  <div class="card-footer"><span>❤️ 9,505</span><span>🔁 260</span><a href="https://x.com/sama/status/2050671161915371998" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Steinberger</span><a class="handle" href="https://x.com/steipete" target="_blank">@steipete</a></div>
-  <div class="card-body">发布 Crabbox 0.3.0：支持 <b>dirty worktree</b> 远程 Linux 运行、GitHub 浏览器登录、实时 <b>run replay</b>、<b>durable run events（持久化运行事件）</b>等新功能。<b>plugin</b> 包大幅精简，依赖和安装速度问题已修复。</div>
-  <div class="card-footer"><span>❤️ 580</span><span>🔁 39</span><a href="https://x.com/steipete/status/2050490163810230579" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
-  <div class="card-body">AI 不会替代软件工程师——他用生命科学公司类比：实验室自动化让研究员从重复操作中解放出来，带来更多实验需求；同理，AI 让工程师从重复编码中解放，只会产生更多软件需求，而不是更少工程师。</div>
-  <div class="card-footer"><span>❤️ 301</span><span>🔁 52</span><a href="https://x.com/levie/status/2050684160151617603" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every CEO</span></div>
-  <div class="card-body">"接下来十年我们大概率就是这么工作的：左边是持续运行的 <b>agent（智能体）</b>，右边是你和 agent 共同使用的应用。"</div>
-  <div class="card-footer"><span>❤️ 323</span><span>🔁 20</span><a href="https://x.com/danshipper/status/2050583747041640608" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Amjad Masad</span><a class="handle" href="https://x.com/amasad" target="_blank">@amasad</a><span style="color:#888;font-size:12px">Replit CEO</span></div>
-  <div class="card-body">展示 Replit 新功能：同时运行 10 个项目，每个项目 10 个并行 <b>agent</b>，总计 100 个 agent 同时工作。</div>
-  <div class="card-footer"><span>❤️ 78</span><span>🔁 2</span><a href="https://x.com/amasad/status/2050793150713864678" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a></div>
-  <div class="card-body">在 AIE Europe 现场，创始人 @tokengobbler 当众关闭了自己的产品 Vibe-kanban（仍有 3 万 MAU），并开源。他的总结值得记住："现在赚钱的公司都在做两件事：卖给企业、倒卖 <b>token（令牌）</b>。我们一件都没做。"</div>
-  <div class="card-footer"><span>❤️ 56</span><span>🔁 4</span><a href="https://x.com/swyx/status/2050753293601935777" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
-  <div class="card-body">Oakland 人均税收在同类城市中最高，但市政服务质量垫底。44% 的 Measure E 收入流向预先承诺的工会加薪。他的结论：把低效包装成道德语言，是一种有组织的功能失调。</div>
-  <div class="card-footer"><span>❤️ 237</span><span>🔁 36</span><a href="https://x.com/garrytan/status/2050775806574751816" target="_blank">查看原文 →</a></div>
-</div>
-
-<div class="card">
-  <div class="card-header"><span class="name">Peter Yang</span><a class="handle" href="https://x.com/petergyang" target="_blank">@petergyang</a></div>
-  <div class="card-body">用 Claude Code 或 Codex 来"断舍离"本地文件和 Google Drive——给 AI 完全访问权限，让它帮你整理归档。</div>
-  <div class="card-footer"><span>❤️ 222</span><span>🔁 15</span><a href="https://x.com/petergyang/status/2050623358488997917" target="_blank">查看原文 →</a></div>
-</div>
-
-    </div>
-  </details>
-</section>
-<!-- /DAY:2026-05-04 -->
-<!-- DIGESTS_END -->
-</div>
 <script>
-// Inject builder avatar as card background + circular photo in byline
-document.querySelectorAll('.card:not(:has(.podcast-label))').forEach(card => {
-  const handleEl = card.querySelector('.handle')
-  if (!handleEl) return
-  const m = handleEl.href?.match(/(?:x|twitter)\.com\/([^/?#]+)/)
-  if (!m) return
-  const username = m[1]
-  const url = `https://unavatar.io/twitter/${username}`
+const STORAGE_KEY = 'spiritual-ideas-v1';
+const ACCOUNT_KEY = 'spiritual-ideas-account';
+const $ = selector => document.querySelector(selector);
+const app = $('#app');
+const loginScreen = $('#loginScreen');
+const entryForm = $('#entryForm');
+const entryList = $('#entryList');
+const filters = document.querySelectorAll('.filter-btn');
+const moods = document.querySelectorAll('.mood');
+let activeFilter = '全部';
+let activeMood = '平静';
+let entries = [];
 
-  // Set CSS variable for blurred background
-  card.style.setProperty('--avatar', `url(${url})`)
-
-  // Add circular avatar to byline
-  const header = card.querySelector('.card-header')
-  if (header) {
-    const img = document.createElement('img')
-    img.src = url
-    img.className = 'avatar'
-    img.alt = ''
-    img.onerror = () => img.remove()
-    header.prepend(img)
+const sampleEntries = [
+  {
+    id: crypto.randomUUID(),
+    title: '晨间冥想里的金色门廊',
+    category: '冥想',
+    mood: '平静',
+    body: '呼吸变慢后，看见一条很长的金色门廊。它像在提醒我：新的创作不需要用力推开，只要每天走近一点。关键词：门、光、耐心。',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: crypto.randomUUID(),
+    title: '月亮水仪式的包装灵感',
+    category: '创作',
+    mood: '被点亮',
+    body: '想做一组带月相刻度的卡片，正面是仪式步骤，背面留给使用者写下当晚的愿望。颜色保持象牙白、淡紫和一点铜金。',
+    createdAt: new Date(Date.now() - 86400000 * 2).toISOString()
   }
-})
+];
+
+function getAccount(){
+  const raw = localStorage.getItem(ACCOUNT_KEY);
+  return raw ? JSON.parse(raw) : null;
+}
+function saveAccount(account){localStorage.setItem(ACCOUNT_KEY, JSON.stringify(account));}
+function loadEntries(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  entries = raw ? JSON.parse(raw) : sampleEntries;
+  saveEntries();
+}
+function saveEntries(){localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));}
+function escapeHTML(text){
+  return text.replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+}
+function formatDate(value){
+  return new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(value));
+}
+function showApp(username){
+  $('#currentUser').textContent = username;
+  $('#avatar').textContent = username.slice(0,1).toUpperCase();
+  loginScreen.classList.add('hidden');
+  app.classList.remove('hidden');
+  loadEntries();
+  render();
+}
+function showLogin(){
+  app.classList.add('hidden');
+  loginScreen.classList.remove('hidden');
+}
+
+$('#loginForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const username = $('#username').value.trim();
+  const password = $('#password').value;
+  const saved = getAccount();
+  $('#loginError').textContent = '';
+  if (!saved) {
+    saveAccount({ username, password });
+    showApp(username);
+    return;
+  }
+  if (saved.username === username && saved.password === password) {
+    showApp(username);
+  } else {
+    $('#loginError').textContent = '用户名或密码不正确。若要重置，请清除浏览器本地存储。';
+  }
+});
+
+$('#logoutBtn').addEventListener('click', () => showLogin());
+
+moods.forEach(button => button.addEventListener('click', () => {
+  moods.forEach(item => item.classList.remove('active'));
+  button.classList.add('active');
+  activeMood = button.dataset.mood;
+}));
+
+filters.forEach(button => button.addEventListener('click', () => {
+  filters.forEach(item => item.classList.remove('active'));
+  button.classList.add('active');
+  activeFilter = button.dataset.filter;
+  render();
+}));
+
+$('#searchInput').addEventListener('input', render);
+$('#clearFormBtn').addEventListener('click', resetForm);
+
+entryForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const id = $('#editingId').value || crypto.randomUUID();
+  const nextEntry = {
+    id,
+    title: $('#entryTitle').value.trim(),
+    category: $('#entryCategory').value,
+    mood: activeMood,
+    body: $('#entryBody').value.trim(),
+    createdAt: $('#editingId').value ? entries.find(entry => entry.id === id)?.createdAt || new Date().toISOString() : new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  entries = entries.some(entry => entry.id === id)
+    ? entries.map(entry => entry.id === id ? nextEntry : entry)
+    : [nextEntry, ...entries];
+  saveEntries();
+  resetForm();
+  render();
+});
+
+entryList.addEventListener('click', event => {
+  const button = event.target.closest('button[data-action]');
+  if (!button) return;
+  const id = button.dataset.id;
+  const entry = entries.find(item => item.id === id);
+  if (!entry) return;
+  if (button.dataset.action === 'delete') {
+    entries = entries.filter(item => item.id !== id);
+    saveEntries();
+    render();
+  }
+  if (button.dataset.action === 'edit') {
+    $('#editingId').value = entry.id;
+    $('#entryTitle').value = entry.title;
+    $('#entryCategory').value = entry.category;
+    $('#entryBody').value = entry.body;
+    activeMood = entry.mood;
+    moods.forEach(item => item.classList.toggle('active', item.dataset.mood === entry.mood));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+});
+
+function resetForm(){
+  entryForm.reset();
+  $('#editingId').value = '';
+  activeMood = '平静';
+  moods.forEach(item => item.classList.toggle('active', item.dataset.mood === activeMood));
+}
+
+function render(){
+  const query = $('#searchInput').value.trim().toLowerCase();
+  const visible = entries.filter(entry => {
+    const matchesFilter = activeFilter === '全部' || entry.category === activeFilter;
+    const matchesQuery = !query || `${entry.title} ${entry.body}`.toLowerCase().includes(query);
+    return matchesFilter && matchesQuery;
+  }).sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+  renderStats();
+  $('#filterLabel').textContent = activeFilter === '全部' ? '正在查看全部记录' : `正在查看「${activeFilter}」记录`;
+  if (!visible.length) {
+    entryList.innerHTML = '<div class="empty">还没有匹配的记录。写下一条新的灵感，或者换个关键词搜索。</div>';
+    return;
+  }
+  entryList.innerHTML = visible.map(entry => `
+    <article class="entry-card">
+      <div class="entry-top">
+        <div>
+          <span class="badge">${categoryIcon(entry.category)} ${escapeHTML(entry.category)}</span>
+          <h3>${escapeHTML(entry.title)}</h3>
+        </div>
+        <div class="entry-actions">
+          <button class="icon-btn" data-action="edit" data-id="${entry.id}" title="编辑" type="button">✎</button>
+          <button class="icon-btn" data-action="delete" data-id="${entry.id}" title="删除" type="button">×</button>
+        </div>
+      </div>
+      <p>${escapeHTML(entry.body)}</p>
+      <div class="entry-meta"><span>心境：${escapeHTML(entry.mood)}</span><span>记录于 ${formatDate(entry.createdAt)}</span></div>
+    </article>
+  `).join('');
+}
+function renderStats(){
+  const weekAgo = Date.now() - 86400000 * 7;
+  const counts = entries.reduce((acc, entry) => {
+    acc[entry.category] = (acc[entry.category] || 0) + 1;
+    return acc;
+  }, {});
+  $('#totalCount').textContent = entries.length;
+  $('#weekCount').textContent = entries.filter(entry => new Date(entry.createdAt).getTime() >= weekAgo).length;
+  $('#countAll').textContent = entries.length;
+  $('#countDream').textContent = counts['梦境'] || 0;
+  $('#countMeditation').textContent = counts['冥想'] || 0;
+  $('#countRitual').textContent = counts['仪式'] || 0;
+  $('#countCreation').textContent = counts['创作'] || 0;
+}
+function categoryIcon(category){
+  return {梦境:'🌙',冥想:'🪷',仪式:'🕯️',创作:'✨'}[category] || '✦';
+}
+
+const account = getAccount();
+if (account) showApp(account.username); else showLogin();
 </script>
 </body>
 </html>
