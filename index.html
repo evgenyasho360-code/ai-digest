@@ -300,6 +300,117 @@
 </header>
 <div class="container" id="digests">
 <!-- DIGESTS_START -->
+<!-- DAY:2026-05-19 -->
+<section class="day" data-date="2026-05-19">
+  <details open>
+    <summary><span class="day-date">2026年5月19日</span><span class="day-stats">14 位 builder · 29 条推文 · 3 篇博客 · 1 期播客</span></summary>
+    <div class="day-content">
+
+<div class="section-label">官方博客 Official Blogs</div>
+
+<div class="card">
+  <div class="podcast-label">📝 Anthropic Engineering</div>
+  <div class="card-title"><a href="https://www.anthropic.com/engineering/april-23-postmortem" target="_blank">Claude Code 质量下降事后复盘：三个 bug，一次集体踩坑</a></div>
+  <div class="excerpt">Anthropic 罕见地发布了一篇完整的 postmortem，追查了过去一个月 Claude Code 质量下降的根源。不是一个问题，是三个同时发生的 bug：<b>① 推理力度从 high 悄悄降为 medium</b>（3月4日上线，4月7日撤回）；<b>② 缓存 bug 让思考历史在每个回合都被清空</b>，导致 Claude 越来越"失忆"（3月26日引入，4月10日修复）；<b>③ 一行限制 verbosity 的 system prompt</b>让代码质量下降 3%（4月16日上线，4月20日撤回）。三个问题分别影响不同流量切片，叠加起来看起来像随机性全局退化，很难定位。<br><br>Anthropic 坦承：这些改动通过了所有 code review、单测、E2E 测试和内部 dogfood，没有被拦住。用 Opus 4.7 做代码审查时，它找出了 bug；Opus 4.6 没找到。今天已重置所有订阅者的使用量限制。</div>
+</div>
+
+<div class="card">
+  <div class="podcast-label">📝 Claude Blog</div>
+  <div class="card-title"><a href="https://claude.com/blog/claude-managed-agents-memory" target="_blank">Claude Managed Agents 内置跨会话记忆，Netflix 和 Rakuten 已在用</a></div>
+  <div class="excerpt">Managed Agents 记忆功能正式进入公开 beta。记忆以文件形式挂载到文件系统，可通过 API 导出、管理，支持多 agent 并发读写同一个 store，并带完整审计日志和版本回滚。<br><br>实际效果：Rakuten 的任务型 agent 通过跨会话记忆避免重蹈覆辙，<b>首次失误率下降 97%</b>；Wisedocs 文件核查流程提速 30%；Netflix agent 在多轮对话后能记住人工纠正的内容，不再需要手动更新 prompt。</div>
+</div>
+
+<div class="card">
+  <div class="podcast-label">📝 Claude Blog</div>
+  <div class="card-title"><a href="https://claude.com/blog/connectors-for-everyday-life" target="_blank">Claude 新增生活场景 Connector：Uber、Spotify、Instacart……直接在对话里搞定</a></div>
+  <div class="excerpt">Claude connector 目录已扩展到 200+ 个，新增 AllTrails、Audible、Booking.com、Instacart、Spotify、TurboTax、Uber、Uber Eats 等生活场景应用。Claude 会在对话中自动识别并推荐合适的 connector，问一次就能同时调用多个应用。Claude 承诺无广告、无赞助内容，接入某个服务的数据不会用于训练模型，随时可以断开。</div>
+</div>
+
+<div class="section-label">X / Twitter 动态</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Claude</span><a class="handle" href="https://x.com/claudeai" target="_blank">@claudeai</a><span style="color:#888;font-size:12px">Anthropic 官方账号</span></div>
+  <div class="card-body">两条重磅：<b>Claude Design 所有套餐 token 上限翻倍</b>，同时官宣 Code with Claude 伦敦站——明日举行，深度 demo 和团队对谈直播。</div>
+  <div class="card-footer"><span>❤️ 14,761 / 2,880</span><span>🔁 883 / 233</span><a href="https://x.com/claudeai/status/2056460045756309820" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Thariq</span><a class="handle" href="https://x.com/trq212" target="_blank">@trq212</a><span style="color:#888;font-size:12px">Claude Code @ Anthropic</span></div>
+  <div class="card-body">发了一个现在超火的 prompt 技巧（1000+ 点赞）：在给 AI 布置任务时，同时让它维护一个 <b>implementation-notes.html</b> 文件，记录所有设计决策、偏离 spec 的地方、权衡取舍和开放问题。解决了"AI 自己做决定但你不知道它为什么这么做"的核心痛点。还在 Code with Claude 活动上聊了长时间运行 agent 时如何保持用户 in the loop。他自称正式进入"HTML 时代"。</div>
+  <div class="card-footer"><span>❤️ 1,051 / 531</span><span>🔁 62 / 21</span><a href="https://x.com/trq212/status/2056418157305454805" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Sam Altman</span><a class="handle" href="https://x.com/sama" target="_blank">@sama</a><span style="color:#888;font-size:12px">OpenAI CEO</span></div>
+  <div class="card-body">"ChatGPT 最新版本好太多了，为团队感到骄傲。" 13000+ 点赞，措辞简短但信号明确——有重大更新上线。</div>
+  <div class="card-footer"><span>❤️ 13,029</span><span>🔁 479</span><a href="https://x.com/sama/status/2056435834333934051" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Ryo Lu</span><a class="handle" href="https://x.com/ryolu_" target="_blank">@ryolu_</a><span style="color:#888;font-size:12px">Cursor 设计师</span></div>
+  <div class="card-body">发布 <b>Cursor Composer 2.5</b>："frontier smart, extremely efficient（前沿智能，极度高效）"。538 点赞，暗示这是一次重要升级，并预告后续还有更多。</div>
+  <div class="card-footer"><span>❤️ 538 / 443</span><span>🔁 17 / 13</span><a href="https://x.com/ryolu_/status/2056417715448156276" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Guillermo Rauch</span><a class="handle" href="https://x.com/rauchg" target="_blank">@rauchg</a><span style="color:#888;font-size:12px">Vercel CEO</span></div>
+  <div class="card-body">Vercel Firewall 全面免费：DDoS 防护、系统级拦截以及所有自定义规则产生的计算和流量成本，Vercel 全包。同时介绍了 Firewall 规则 <b>~300ms 全球同步</b>的实现，远超行业 WAF 动辄几分钟的传播延迟，称这是"你的 agent 会爱上的 firewall"。</div>
+  <div class="card-footer"><span>❤️ 264 / 303</span><span>🔁 15 / 10</span><a href="https://x.com/rauchg/status/2056549825018310707" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Aaron Levie</span><a class="handle" href="https://x.com/levie" target="_blank">@levie</a><span style="color:#888;font-size:12px">Box CEO</span></div>
+  <div class="card-body">很多公司 AI agent 策略失败，根本原因是<b>数据策略问题</b>，而不是模型问题。信息太多或来源冲突，agent 会得出错误结论；信息太少，agent 价值受限。结构化和非结构化数据环境没搭好，再好的 agent 也没用——企业 AI 战略的核心其实是数据治理。</div>
+  <div class="card-footer"><span>❤️ 132</span><span>🔁 14</span><a href="https://x.com/levie/status/2056574979236409521" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Peter Yang</span><a class="handle" href="https://x.com/petergyang" target="_blank">@petergyang</a><span style="color:#888;font-size:12px">Roblox 产品负责人</span></div>
+  <div class="card-body">整理了与 Anthropic 开发者关系负责人 Alex Albert 对谈的 5 个核心观点：① 模型和 harness 是强耦合的，同一个模型在不同 surface 里行为不同；② Claude 开始会"做梦"——空闲时自动整理和修剪记忆；③ eval 要聚焦真实用户问题，用 Claude 来归类反馈再生成合成测试用例；④ Anthropic 有专职研究员在认真思考 Claude 的意识问题；⑤ Anthropic 的书面文化让 Claude 拥有更丰富的内部上下文。</div>
+  <div class="card-footer"><span>❤️ 60</span><span>🔁 4</span><a href="https://x.com/petergyang/status/2056381822733595090" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Garry Tan</span><a class="handle" href="https://x.com/garrytan" target="_blank">@garrytan</a><span style="color:#888;font-size:12px">YC CEO</span></div>
+  <div class="card-body">GBrain 进入高速迭代期：一次性合并了 22 个社区 PR、修复 28 个 bug。同时把完整的 eval 报告和测试集开源发布，邀请其他内存系统来跑同一套 eval，公开对比结果——这是一次罕见的开放竞技邀请。</div>
+  <div class="card-footer"><span>❤️ 90 / 8</span><span>🔁 3</span><a href="https://x.com/garrytan/status/2056588601216168168" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Zara Zhang</span><a class="handle" href="https://x.com/zarazhangrui" target="_blank">@zarazhangrui</a><span style="color:#888;font-size:12px">Builder</span></div>
+  <div class="card-body">正在湾区组织一个 agent context 管理主题线下活动，邀请有 GBrain、LLM Wiki 或其他 context 管理实践经验的人来 demo，与 Notion、Radical Ventures 联合主办。同时反馈 Claude Code 最近频繁出现 socket 连接断开报错。</div>
+  <div class="card-footer"><span>❤️ 36</span><span>🔁 1</span><a href="https://x.com/zarazhangrui/status/2056464721549926414" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Nikunj Kothari</span><a class="handle" href="https://x.com/nikunj" target="_blank">@nikunj</a><span style="color:#888;font-size:12px">FPV Ventures 合伙人</span></div>
+  <div class="card-body">犀利批评：有投资人"X 上写 banger 推文，但是烂透了的董事会成员"。他的判断——越来越多投资人在用内容刷存在感，而不是真正帮创始人干活。"认真服务创始人，是唯一能长期复利的护城河。"</div>
+  <div class="card-footer"><span>❤️ 46 / 471</span><span>🔁 1 / 27</span><a href="https://x.com/nikunj/status/2056363681798410592" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Dan Shipper</span><a class="handle" href="https://x.com/danshipper" target="_blank">@danshipper</a><span style="color:#888;font-size:12px">Every CEO</span></div>
+  <div class="card-body">Every 即将发布完整版 Codex 使用指南，可提前订阅通知。另外他直接评论说："大家应该写更好的书——这个类目里大部分已出版内容都是 slop。"</div>
+  <div class="card-footer"><span>❤️ 35 / 29</span><span>🔁 4</span><a href="https://x.com/danshipper/status/2056431972138815842" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="name">Swyx</span><a class="handle" href="https://x.com/swyx" target="_blank">@swyx</a><span style="color:#888;font-size:12px">AI Engineer 联合创始人</span></div>
+  <div class="card-body">在押注 Vercel 和 Supabase（疑似 IPO 时间线讨论）。另外建议有人把某个 AI 项目做成 2-3 小时的直播 workshop 教程，认为完全可以一次做完——在为 AI Engineer 社区征集讲师。</div>
+  <div class="card-footer"><span>❤️ 409 / 13</span><span>🔁 11</span><a href="https://x.com/swyx/status/2056478391008977404" target="_blank">查看原文 →</a></div>
+</div>
+
+<div class="section-label">播客 Podcast</div>
+<div class="card">
+  <div class="podcast-label">🎙 AI & I by Every</div>
+  <div class="card-title"><a href="https://www.youtube.com/watch?v=lLypHkIVLqc" target="_blank">Anthropic 平台负责人揭秘：Claude Managed Agents 的设计哲学与一年后的形态</a></div>
+  <div class="excerpt">Anthropic Claude 平台产品负责人 Angela 和工程负责人 Caitlin 分享了为什么要打造 Managed Agents，以及下一步往哪走。<br><br>核心洞见：大多数开发者以为最难的是"harness engineering"（如何搭好对话框架、配好工具），但实际上，大家真正踩坑的是<b>把 agent 推上生产</b>——服务器保活、sandbox 崩溃、转写数据存哪。这就是 Managed Agents 存在的原因。内部实践案例：Anthropic 自己用 Managed Agents 构建了法务审核 agent，让市场人员直接把文案丢进去，agent 先过滤一遍，只有有争议的才转到法务人工审核。<br><br>对于"模型锁定"的担忧，Angela 给出了一个清醒判断：通用 harness + 热插拔模型的时代正在过去，<b>harness 和模型会越来越深度耦合</b>，真正的差异化来自把两者调到最优。<br><br>关于一年后的形态，她的愿景是：Claude 自己会理解自己，自动决定用哪个模型、启动多少 sub-agent、选哪种架构——用户只需要给出"outcome + budget"两个参数。<br><br>"你不再需要做 harness engineering，因为 Claude 足够了解自己，能在运行时把自己写出来。"</div>
+</div>
+
+    </div>
+  </details>
+</section>
+<!-- /DAY:2026-05-19 -->
 <!-- DAY:2026-05-18 -->
 <section class="day" data-date="2026-05-18">
   <details open>
